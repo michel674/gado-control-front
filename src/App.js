@@ -1,6 +1,7 @@
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { BoxStyled, Spacing } from './components/box.styled';
+import { H1, H2, H3 } from './components/typography';
 
 const App = () => {
 
@@ -9,24 +10,15 @@ const App = () => {
     <Grid>
       <Row>
         <Col xs={12} md={3} >
-          <BoxStyled/>
+          <H1>Gado control</H1>
+          <H2>Gado control</H2>
+          <H3>Gado control</H3>
           <Spacing />
         </Col>
 
-        <Col xs={12} md={3}>
-          <BoxStyled />
-          <Spacing />
-        </Col>
 
-        <Col xs={12} md={3}>
-          <BoxStyled />
-          <Spacing />
-        </Col>
 
-        <Col xs={12} md={3}>
-          <BoxStyled />
-          <Spacing />
-        </Col>
+
       </Row>
     </Grid>
 
