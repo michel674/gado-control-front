@@ -1,15 +1,35 @@
-import { Button } from './components/button.styled';
-import { MenuContainer } from './components/menucontainer.styled';
+
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { BoxStyled, Spacing } from './components/box.styled';
 
 const App = () => {
+
+
   return (
-    <div>
-      <h1>Hello World</h1>
-      <Button>
-        Clicar
-      </Button>
-      <MenuContainer />
-    </div>
+    <Grid>
+      <Row>
+        <Col xs={12} md={3} >
+          <BoxStyled/>
+          <Spacing />
+        </Col>
+
+        <Col xs={12} md={3}>
+          <BoxStyled />
+          <Spacing />
+        </Col>
+
+        <Col xs={12} md={3}>
+          <BoxStyled />
+          <Spacing />
+        </Col>
+
+        <Col xs={12} md={3}>
+          <BoxStyled />
+          <Spacing />
+        </Col>
+      </Row>
+    </Grid>
+
 
   );
 }
