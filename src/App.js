@@ -1,4 +1,5 @@
 import { Button } from './components/button.styled';
+import { MenuContainer } from './components/menucontainer.styled';
 
 const App = () => {
   return (
@@ -7,7 +8,9 @@ const App = () => {
       <Button>
         Clicar
       </Button>
+      <MenuContainer />
     </div>
+
   );
 }
 
