@@ -1,4 +1,4 @@
-export const Color  = {
+export const Color = {
   White: '#FFFFFF',
   Black: '#000000',
 
@@ -13,43 +13,53 @@ export const Color  = {
   Gray500: '#465950',
   Gray600: '#274134',
   Gray700: '#163124',
-}
+};
 
 export const FontFamily = {
   Primary: 'Poppins',
-}
+};
 
 export const FontSize = {
+  XSmall: '1rem',
   Small: '1.2rem',
   Medium: '1.6rem',
   Large: '2rem',
-}
+};
 
-export const FontWeight =  {
+export const FontWeight = {
   Regular: 400,
   Medium: 500,
   SemiBold: 600,
   Bold: 700,
-}
-
-export const  LineHeight =  {
-  XSmall: '1em',
-  Small: '1.25em',
-  Medium: '1.4em',
-  Large: '1em',
-  XLarge: '2em',
-}
-
-export const Radius = {
-  Small: '0.3rem',
-  Medium: '0.6rem',
 };
 
-export const Transition =  {
+export const LineHeight = {
+  XSmall: '1em',
+  Small: '1.25em',
+  Medium: '2em',
+  Large: '1em',
+  XLarge: '2em',
+};
+
+export const Radius = {
+  Small: '4px',
+  Medium: '8px',
+};
+
+export const Transition = {
   Fast: '0.2s',
   Normal: '0.4s',
   Slow: '1s',
 };
 
-
-
+export const Spacing = {
+  XNano: '0.3rem',
+  Nano: '0.6rem',
+  Small: '0.9rem',
+  SemiSmall: '1.2rem',
+  Medium: '1.8rem',
+  SemiLarge: '2.7rem',
+  Large: '3.6rem',
+  XLarge: '5.4rem',
+  XXLarge: '7.2rem',
+};
