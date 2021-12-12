@@ -10,7 +10,7 @@ const Header = () => {
                 <HeaderLogo to="/home" activeStyle>
                     Gado Control
                 </HeaderLogo>
-                <HeaderUser to="/user" activeStyle>
+                <HeaderUser>
                     <UserPic>
                         TB
                     </UserPic>

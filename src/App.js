@@ -1,6 +1,6 @@
 
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { BoxStyled, Spacing } from './components/box.styled';
+import { GadoBoxStyled, Spacing, HeaderSpacing, GraphBoxStyled } from './components/box.styled';
 import { Button } from './components/button.styled';
 import { InputBox } from './components/inputbox.styled';
 import { H1, H2, H3 } from './components/typography';
@@ -17,27 +17,46 @@ const App = () => {
     <Router>
       <Header />
       <Grid>
-        
         <Row>
-          <Col xs={12} md={3} >
-            <H1>Gado control</H1>
-            <H2>Gado control</H2>
-            <H3>Gado control</H3>
+          <HeaderSpacing />
+        </Row>
+        <Row>
+          <Col xs={4} md={4} >
+            <Spacing />
+            <GadoBoxStyled>
+              <div />
+              <p> Matrizes</p>
+              <h1>12</h1>
+            </GadoBoxStyled>
             <Spacing />
           </Col>
-          <Col xs={12} md={3} >
-            <Button>Clicar</Button>
-            <InputBox type="email" placeholder="Place Holder Text"></InputBox>
+
+          <Col xs={4} md={4} >
+            <Spacing />
+            <GadoBoxStyled>
+              
+            </GadoBoxStyled>
+            <Spacing />
           </Col>
-          <Col xs={12} md={3} >
-            <UserPic>TB</UserPic>
+          
+          <Col xs={4} md={4} >
+            <Spacing />
+            <GadoBoxStyled>
+              
+            </GadoBoxStyled>
+            <Spacing />
           </Col>
-
-
-
-
         </Row>
-        
+        <Row>
+          <Col xs={12} md={12}>
+            <Spacing />
+             <GraphBoxStyled>
+               <h2>Projeção de crescimento do gado</h2>
+               <div></div>
+             </GraphBoxStyled>
+             <Spacing />
+          </Col>
+        </Row>
       </Grid>
       <Navbar />
     </Router>

@@ -34,5 +34,4 @@ export const HeaderLogo = styled(Link)`
 `;
 
 export const HeaderUser = styled.div`
-    margin-Right:40px;
 `;

@@ -3,7 +3,7 @@ import { Color } from './constants';
 import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav` 
-position: absolute;
+position: sticky;
 bottom: 0;
 z-index: 999;
 height: 80px;
