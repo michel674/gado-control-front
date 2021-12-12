@@ -40,7 +40,7 @@ export const Home = () => {
   ];
 
   return (
-    <Router>
+    <>
       <GlobalStyled />
       <Header />
 
@@ -135,6 +135,6 @@ export const Home = () => {
       </Grid>
       <Separator type="Large" />
       <Navbar />
-    </Router>
+    </>
   );
 };
