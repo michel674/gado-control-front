@@ -3,6 +3,8 @@ export const Color  = {
   Black: '#000000',
 
   Primary: '#19B269',
+  PrimaryLight: '#75D0A5',
+  PrimaryDark: '#0f6a3f',
 
   Gray100: '#F3F6F5',
   Gray200: '#E4EEE9',
@@ -35,6 +37,7 @@ export const  LineHeight =  {
   Small: '1.25em',
   Medium: '1.4em',
   Large: '1em',
+  XLarge: '2em',
 }
 
 export const Radius = {
