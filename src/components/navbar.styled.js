@@ -8,8 +8,8 @@ bottom: 0;
 z-index: 999;
 height: 80px;
 width:100%;
-background-color: ${Color.Gray100};
-box-shadow: 0px -6px 6px -4px ${Color.Gray600};
+background-color: ${Color.White};
+box-shadow: 0px -6px 6px -4px ${Color.Gray300};
 display: flex;
 justify-content: center;
 align-items: center;
@@ -22,7 +22,7 @@ export const NavMenu = styled.div`
 `;
 
 export const NavLink = styled(Link)` 
-    color: ${Color.Primary};
+    color: ${Color.Gray400};
     display: flex;
     align-items:center;
     text-decoration:none;
@@ -31,6 +31,6 @@ export const NavLink = styled(Link)`
     cursor: pointer;
 
     &.active{
-        color: ${Color.Black};
+        color: ${Color.Primary};
     }
 `;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Color,Transition } from './constants';
+import { NavLink as Link } from 'react-router-dom';
 
-export const UserPic = styled.div`
+export const UserPic = styled.styled(Link)`
 
     padding: 10px 10px;
     height:100px; //Height = Width
@@ -16,7 +17,9 @@ export const UserPic = styled.div`
 
     background-color: ${Color.Gray700};
 
+    
     border-radius: 50%;
+    border:2px solid ${Color.Gray100};
 
     transition-duration: ${Transition.Normal};
     &:hover{

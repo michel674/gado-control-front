@@ -37,6 +37,7 @@ export const  LineHeight =  {
   Small: '1.25em',
   Medium: '1.4em',
   Large: '1em',
+  XLarge: '2em',
 }
 
 export const Radius = {

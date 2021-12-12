@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 import { FontFamily, FontSize, FontWeight, LineHeight, Color } from './constants'
 
+export const Title = styled.title`
+  font-family: ${FontFamily.Primary};
+  font-weight: ${FontWeight.Bold};
+  font-size: ${FontSize.XLarge};
+
+  line-height: ${LineHeight.Large};
+
+  color: ${Color.Grey100};
+`;
+
 export const H1 = styled.h1`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Medium};

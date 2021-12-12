@@ -6,6 +6,7 @@ import { InputBox } from './components/inputbox.styled';
 import { H1, H2, H3 } from './components/typography';
 import { UserPic } from './components/userpc.styled';
 import Navbar from './Navbar';
+import Header from './Header';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -14,7 +15,9 @@ const App = () => {
 
   return (
     <Router>
+      <Header />
       <Grid>
+        
         <Row>
           <Col xs={12} md={3} >
             <H1>Gado control</H1>
@@ -34,8 +37,9 @@ const App = () => {
 
 
         </Row>
-        <Navbar></Navbar>
+        
       </Grid>
+      <Navbar />
     </Router>
 
 
