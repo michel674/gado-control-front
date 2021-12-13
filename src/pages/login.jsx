@@ -14,9 +14,9 @@ import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { Background } from '../components/background.styled';
 
 export const Login = () => {
-    return(
-        <Background color="primary">
-            <GlobalStyled />
-        </Background>
-    );
+  return (
+    <Background color="primary">
+      <GlobalStyled />
+    </Background>
+  );
 };

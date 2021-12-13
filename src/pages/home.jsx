@@ -1,9 +1,5 @@
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { GlobalStyled } from '../components/reset.styled';
 
-import Navbar from '../Navbar';
-import Header from '../Header';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Frame } from '../atomic/atm.frame/frame';
 import { Separator } from '../atomic/atm.separator/separator.styled';
 
@@ -42,10 +38,7 @@ export const Home = () => {
   ];
 
   return (
-    <Background>
-      <GlobalStyled />
-      <Header />
-
+    <>
       <Separator type="Small" />
       <Grid>
         <Row>
@@ -135,8 +128,6 @@ export const Home = () => {
           })}
         </Row>
       </Grid>
-      <Separator type="Large" />
-      <Navbar />
-    </Background>
+    </>
   );
 };
