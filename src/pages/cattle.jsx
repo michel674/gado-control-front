@@ -40,100 +40,68 @@ export const Cattle = () => {
 
   return (
     <>
-      <GlobalStyled />
-      <Header />
-
-      <Separator type="Small" />
       <Grid>
-        <Row>
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Matrizes</H4>
-                  <Separator type="Small" />
-                  <H1>12</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bois</H4>
-                  <Separator type="Small" />
-                  <H1>18</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bezerros</H4>
-                  <Separator type="Small" />
-                  <H1>67</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-        </Row>
-
         <Separator type="Small" />
 
         <Row>
+          <Col xs={12}></Col>
+        </Row>
+        <Hbox>
+          <Hbox.Item noGrow vAlign="center">
+            <H2>Cabeças de gado</H2>
+          </Hbox.Item>
+
+          <Hbox.Item hAlign="flex-end" vAlign="center">
+            <H5>39 cabeças</H5>
+          </Hbox.Item>
+        </Hbox>
+
+        <Row>
           <Col xs={12}>
-            <Frame>
-              <H3>Projeção de crescimento do gado</H3>
-              <GraphImageStyled
-                src="graph.svg"
-                alt="Projeção de crescimento do gado"
-              />
-            </Frame>
+            <Hbox>
+              <Hbox.Item noGrow>
+                <select>
+                  <option>Todos</option>
+                </select>
+              </Hbox.Item>
+
+              <Hbox.Item hAlign="flex-end">
+                <button>Adicionar+</button>
+              </Hbox.Item>
+            </Hbox>
           </Col>
         </Row>
 
         <Separator type="Medium" />
 
         <Row>
-          <H2>Atividade nos últimos 3 meses</H2>
-          <Separator type="Large" />
-
-          {CATTLE.map(({ type, amount, cattle, date, value }, index) => {
+          {[1, 2, 3, 4, 5, 6].map(item => {
             return (
-              <>
-                <Col xs={12} key={index}>
-                  <Frame>
-                    <Hbox>
-                      <Hbox.Item vAlign="center" noGrow>
-                        <Frame type="primary">Caixa</Frame>
-                      </Hbox.Item>
-                      <Hbox.Separator />
-                      <Hbox.Item vAlign="center">
-                        <H3>
-                          {type} de {amount} {cattle}
-                        </H3>
-                        <Separator type="XNano" />
-                        <H5>{date}</H5>
-                      </Hbox.Item>
-                      <Hbox.Item vAlign="center" noGrow>
-                        <H4>{value}</H4>
-                      </Hbox.Item>
-                    </Hbox>
-                  </Frame>
-                </Col>
+              <Col xs={12} key={item}>
+                <Frame paddingSize="Small">
+                  <Hbox>
+                    <Hbox.Item noGrow>
+                      <Frame paddingSize="Small" type="primary">
+                        Boi
+                      </Frame>
+                    </Hbox.Item>
+
+                    <Hbox.Separator />
+
+                    <Hbox.Item noGrow>
+                      <Hbox>
+                        <H3>#342</H3> <Separator type="Nano" /> <H5>Matriz</H5>
+                      </Hbox>
+                      <H5>Vacinado &bull; 430 kg &bull; 3 anos</H5>
+                    </Hbox.Item>
+                  </Hbox>
+                </Frame>
                 <Separator type="XNano" />
-              </>
+              </Col>
             );
           })}
         </Row>
       </Grid>
-      <Separator type="Large" />
-      <Navbar />
     </>
   );
 };

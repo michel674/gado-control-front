@@ -15,7 +15,7 @@ const frameCursor = {
 export const FrameStyled = styled.div`
   width: 100%;
 
-  padding: ${Spacing.Medium};
+  padding: ${props => Spacing[props.paddingSize] || Spacing.Medium};
 
   background-color: ${props => frameType[props.type] || frameType.secondary};
   cursor: ${props => frameCursor[props.cursor] || frameCursor.default};
