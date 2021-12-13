@@ -7,59 +7,44 @@ import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { Separator } from '../atomic/atm.separator/separator.styled';
 import { useState } from 'react';
 
-export const ArrowStyled = styled(FaAngleDown)``;
+export const ArrowStyled = styled(FaAngleDown)`
+  position: absolute;
+  display: block;
+  top: 35%;
+  right: 0;
+  height: 30%;
+  width: 3rem;
+  pointer-events: none;
 
-export const SelectBoxStyled = styled.div`
-  width: 100%;
-`;
-
-export const SelectedStyled = styled.div`
-  max-height: 100px;
-  max-width: 100%;
-  background-color: ${Color.Gray200};
-  color: ${Color.Gray600};
-  border-radius: ${Radius.Medium};
-  padding: 12px 24px;
-  cursor: pointer;
-`;
-export const OptionContainerStyled = styled.div`
-  max-width: 100%;
-  max-height: 540px;
-  background-color: ${Color.Gray200};
-  color: ${Color.Gray600};
-  border-radius: ${Radius.Medium};
-  transition: all ${Transition.Normal};
-  overflow: hidden;
-   {
-    props=()= > {
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
   }
-`;
-export const OptionStyled = styled.div`
-  padding: 12px 24px;
-  cursor: pointer;
-  &:hover {
-    background-color: ${Color.Gray300};
-    border-radius: ${Radius.Medium};
+  &::after {
   }
-  &.radio {
-    display: none;
-  }
-`;
-
-export const LabelNumberStyled = styled.label`
-  cursor: pointer;
-`;
-export const LabelStyled = styled.label`
-  cursor: pointer;
 `;
 
 export const Container = styled.div`
-  margin-top: 100px;
-  padding: 32px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 `;
-export const InputStyled = styled.input`
-  display: none;
+
+export const SelectContainer = styled.div`
+  position: relative;
+`;
+
+export const SelectStyled = styled.select`
+  font-size: 1.5rem;
+  padding: 1em 6em 1em 1.5em;
+  background-color: ${Color.Gray200};
+  border-radius: 8px;
+  color: ${Color.Gray600};
+  border: 0;
+
+  appearance: none;
 `;
 
 export const SelectorStyled = () => {
@@ -88,46 +73,15 @@ export const SelectorStyled = () => {
   };
   return (
     <Container>
-      <SelectedStyled onClick={ToggleSwitch}>
-        <Hbox>
-          <Hbox.Item vAlign="Center" hAlign="flex-start">
-            Escolha o Gado
-          </Hbox.Item>
-          <Hbox.Item vAlign="Center" hAlign="flex-end" no-grow>
-            <ArrowStyled />
-          </Hbox.Item>
-        </Hbox>
-      </SelectedStyled>
-      <Separator type="XNano" />
-      <SelectBoxStyled>
-        <OptionContainerStyled toggle={switchToggle}>
-          {GADO.map(({ caddle, number }, index) => {
-            return (
-              <>
-                <div key={index}>
-                  <OptionStyled>
-                    <Hbox>
-                      <InputStyled
-                        type="radio"
-                        nameClass="radio"
-                        id={caddle}
-                        name="category"
-                      />
-                      <Hbox.Item vAlign="center" hAlign="flex-start">
-                        <LabelStyled>{caddle}</LabelStyled>
-                      </Hbox.Item>
-                      <Hbox.Item vAlign="center" hAlign="flex-end">
-                        <LabelNumberStyled>{number}</LabelNumberStyled>
-                      </Hbox.Item>
-                    </Hbox>
-                  </OptionStyled>
-                </div>
-                <Separator type="XNano" />
-              </>
-            );
-          })}
-        </OptionContainerStyled>
-      </SelectBoxStyled>
+      <SelectContainer>
+        <SelectStyled name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </SelectStyled>
+        <ArrowStyled />
+      </SelectContainer>
     </Container>
   );
 };
