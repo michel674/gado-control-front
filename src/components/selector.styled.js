@@ -20,7 +20,7 @@ export const ArrowStyled = styled(FaAngleDown)`
 `;
 
 export const Container = styled.div`
-  min-height: 100vh;
+  min-height: 0;
   display: grid;
   place-items: center;
 `;
@@ -65,14 +65,16 @@ export const SelectBoxStyled = () => {
     console.log(switchToggle);
   };
   return (
-    <SelectContainer>
-      <SelectStyled name="cars" id="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </SelectStyled>
-      <ArrowStyled />
-    </SelectContainer>
+    <Container>
+      <SelectContainer>
+        <SelectStyled name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </SelectStyled>
+        <ArrowStyled />
+      </SelectContainer>
+    </Container>
   );
 };
