@@ -16,13 +16,6 @@ export const ArrowStyled = styled(FaAngleDown)`
   width: 3rem;
   pointer-events: none;
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-  }
-  &::after {
   }
 `;
 
@@ -47,7 +40,7 @@ export const SelectStyled = styled.select`
   appearance: none;
 `;
 
-export const SelectorStyled = () => {
+export const SelectBoxStyled = () => {
   const GADO = [
     {
       caddle: 'Matriz',

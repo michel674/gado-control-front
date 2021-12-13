@@ -13,15 +13,13 @@ import { H1, H2, H3, H4, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { Background } from '../components/background.styled';
 
-import { SelectorStyled } from '../components/selector.styled';
-
+import { SelectBoxStyled } from '../components/selector.styled';
 
 export const Test = () => {
-    return(
-        <Background>
-            <GlobalStyled />
-            <SelectorStyled />
-        </Background>
-        
-    );
+  return (
+    <Background>
+      <GlobalStyled />
+      <SelectBoxStyled />
+    </Background>
+  );
 };
