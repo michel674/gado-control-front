@@ -7,13 +7,15 @@ import { Separator } from './atomic/atm.separator/separator.styled';
 import { GlobalStyled } from './components/reset.styled';
 
 const App = () => {
+  const pathname = window.location.pathname;
+
   return (
     <BrowserRouter>
       <GlobalStyled />
-      <Header />
+      {pathname !== '/login' && <Header />}
       <AppRoutes />
       <Separator type="Large" />
-      <Navbar />
+      {pathname !== '/login' && <Navbar />}
     </BrowserRouter>
   );
 };
