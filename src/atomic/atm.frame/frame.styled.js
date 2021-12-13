@@ -6,12 +6,19 @@ const frameType = {
   secondary: Color.Gray100,
 };
 
+const frameCursor = {
+  pointer: 'pointer',
+  text: 'text',
+  default: 'default',
+};
+
 export const FrameStyled = styled.div`
   width: 100%;
 
   padding: ${Spacing.Medium};
 
   background-color: ${props => frameType[props.type] || frameType.secondary};
+  cursor: ${props => frameCursor[props.cursor] || frameCursor.default};
   border-radius: ${Radius.Medium};
 
   box-sizing: border-box;

@@ -5,10 +5,10 @@ const Navbar = () => {
     <>
       <Nav>
         <NavMenu>
-          <NavLink to="/home" activeStyle>
+          <NavLink to="/" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/gado" activeStyle>
+          <NavLink to="/cattle" activeStyle>
             Gado
           </NavLink>
           <NavLink to="/count" activeStyle>
