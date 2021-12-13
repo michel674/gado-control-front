@@ -1,43 +1,12 @@
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { GlobalStyled } from '../components/reset.styled';
 
-import Navbar from '../Navbar';
-import Header from '../Header';
 import { Frame } from '../atomic/atm.frame/frame';
 import { Separator } from '../atomic/atm.separator/separator.styled';
 
-import { GraphImageStyled } from '../components/graph.styled';
-
-import { H1, H2, H3, H4, H5 } from '../components/typography';
+import { H2, H3, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 
 export const Cattle = () => {
-  const CATTLE = [
-    {
-      type: 'Compra',
-      cattle: 'matrizes',
-      amount: 9,
-      value: '-R$9.576',
-      date: '13 de Setembro',
-    },
-
-    {
-      type: 'Compra',
-      cattle: 'matrizes',
-      amount: 9,
-      value: '-R$9.576',
-      date: '13 de Setembro',
-    },
-
-    {
-      type: 'Compra',
-      cattle: 'matrizes',
-      amount: 9,
-      value: '-R$9.576',
-      date: '13 de Setembro',
-    },
-  ];
-
   return (
     <>
       <Grid>
