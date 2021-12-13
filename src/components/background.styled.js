@@ -9,7 +9,10 @@ const BackgroundColor = {
 
 
 export const Background = styled.div`
-  background-color: ${props => BackgroundColor[props.color] || BackgroundColor.default};
-  width: 100hv;
-  height: 100px;
+  background-color: ${props => BackgroundColor[props.color] || BackgroundColor.secondary};
+  position: absolute;
+  top: 0;
+  left:0;
+  bottom: 0;
+  right: 0;
 `;

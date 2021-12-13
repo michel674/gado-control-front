@@ -45,62 +45,32 @@ export const Cattle = () => {
 
       <Separator type="Small" />
       <Grid>
-        <Row>
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Matrizes</H4>
-                  <Separator type="Small" />
-                  <H1>12</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bois</H4>
-                  <Separator type="Small" />
-                  <H1>18</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-
-          <Col xs={4}>
-            <Frame>
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bezerros</H4>
-                  <Separator type="Small" />
-                  <H1>67</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
-          </Col>
-        </Row>
-
+        
         <Separator type="Small" />
 
         <Row>
           <Col xs={12}>
-            <Frame>
-              <H3>Projeção de crescimento do gado</H3>
-              <GraphImageStyled
-                src="graph.svg"
-                alt="Projeção de crescimento do gado"
-              />
-            </Frame>
+            <Hbox>
+              <Hbox.Item vAlign="center">
+                <H2>Cabeça de Gado</H2>
+              </Hbox.Item>
+              <Hbox.Item vAlign="center" hAlign="flex-end"> 
+                <H4>39 Cabeças</H4>
+              </Hbox.Item>
+            </Hbox>
           </Col>
         </Row>
 
         <Separator type="Medium" />
 
         <Row>
-          <H2>Atividade nos últimos 3 meses</H2>
+          <Col xs={12}>
+            <Hbox>
+                <H2>Atividade nos últimos 3 meses</H2>
+            </Hbox>
+          </Col>
+          
+          
           <Separator type="Large" />
 
           {CATTLE.map(({ type, amount, cattle, date, value }, index) => {
