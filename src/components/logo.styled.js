@@ -23,7 +23,6 @@ export const LogoDarkStyled = styled.a`
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
-  cursor: pointer;
   color: ${Color.Gray700};
   font-weight: ${FontWeight.SemiBold};
   font-family: ${FontFamily.Primary};

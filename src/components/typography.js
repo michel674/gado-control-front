@@ -67,6 +67,6 @@ export const H5Green = styled.h5`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Medium};
   font-size: ${FontSize.XSmall};
-
+  cursor: pointer;
   color: ${Color.Primary};
 `;
