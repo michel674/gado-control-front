@@ -62,3 +62,11 @@ export const H5 = styled.h5`
 
   color: ${Color.Gray400};
 `;
+
+export const H5Green = styled.h5`
+  font-family: ${FontFamily.Primary};
+  font-weight: ${FontWeight.Medium};
+  font-size: ${FontSize.XSmall};
+
+  color: ${Color.Primary};
+`;
