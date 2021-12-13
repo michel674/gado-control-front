@@ -3,17 +3,22 @@ import { AppRoutes } from './app-routes';
 import Header from './Header';
 import Navbar from './Navbar';
 import { Separator } from './atomic/atm.separator/separator.styled';
+import { useLocation } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import { GlobalStyled } from './components/reset.styled';
 
 const App = () => {
+  const pathname = window.location.pathname;
+
+  console.log(pathname);
   return (
     <BrowserRouter>
       <GlobalStyled />
-      <Header />
+      {pathname !== '/login' && <Header />}
       <AppRoutes />
       <Separator type="Large" />
-      <Navbar />
+      {pathname !== '/login' && <Navbar />}
     </BrowserRouter>
   );
 };
