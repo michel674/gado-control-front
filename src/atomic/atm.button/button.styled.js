@@ -1,11 +1,19 @@
 import styled from 'styled-components';
-import { Color, Transition } from '../../components/constants';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  Transition,
+  Spacing,
+} from '../../components/constants';
 
 export const ButtonStyled = styled.button`
   background-color: ${Color.Primary};
   color: ${Color.White};
+  font-size: ${FontSize.Nano};
+  font-weight: ${FontWeight.SemiBold};
 
-  padding: 0.8rem 2rem;
+  padding: ${Spacing.Nano} ${Spacing.Small};
 
   border: none;
   border-radius: 3px;

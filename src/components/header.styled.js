@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Color, FontFamily, Transition } from './constants';
+import { Color, FontFamily, Transition, FontWeight } from './constants';
 
 export const Head = styled.div`
   position: absolute;
@@ -24,6 +24,7 @@ export const HeaderLogo = styled.a`
   color: ${Color.Gray100};
 
   font-family: ${FontFamily.Primary};
+  font-weight: ${FontWeight.Bold};
 
   transition-duration: ${Transition.Normal};
   &:hover {
