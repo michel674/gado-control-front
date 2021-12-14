@@ -1,3 +1,4 @@
+import { faIcon } from './atomic/atm.font-awesome';
 import { Nav, NavMenu, NavLink } from './components/navbar.styled';
 
 const Navbar = () => {
@@ -6,16 +7,16 @@ const Navbar = () => {
       <Nav>
         <NavMenu>
           <NavLink to="/" activeStyle>
-            Home
+            {faIcon.home}
           </NavLink>
           <NavLink to="/cattles" activeStyle>
-            Gado
+            {faIcon.cow}
           </NavLink>
           <NavLink to="/count" activeStyle>
-            Contagem
+            {faIcon.listOl}
           </NavLink>
           <NavLink to="/transactions" activeStyle>
-            Transações
+            {faIcon.moneyCheckAlt}
           </NavLink>
         </NavMenu>
       </Nav>
