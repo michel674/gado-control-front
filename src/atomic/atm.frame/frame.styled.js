@@ -4,6 +4,7 @@ import { Color, Radius, Spacing } from '../../components/constants';
 const frameType = {
   primary: Color.Primary + '34',
   secondary: Color.Gray100,
+  white: Color.White,
 };
 
 const frameCursor = {
