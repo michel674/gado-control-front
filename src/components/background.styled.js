@@ -9,7 +9,7 @@ const BackgroundColor = {
 export const Background = styled.div`
   background-color: ${props =>
     BackgroundColor[props.color] || BackgroundColor.secondary};
-  position: sticky;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;

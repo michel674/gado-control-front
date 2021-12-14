@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Color, Radius, Spacing } from '../../components/constants';
+import { Color, Radius, Spacing, Transition } from '../../components/constants';
 
 const frameColor = {
   primary: Color.Primary + '34',
@@ -24,4 +24,10 @@ export const FrameStyled = styled.div`
   border-radius: ${Radius.Medium};
 
   box-sizing: border-box;
+  transition-duration: ${Transition.Normal};
+  ${props => (props.toggle ? '&:hover { opacity: 0.7; }' : '')}
+  ${props =>
+    props.toggle ? '&:hover {box-shadow: 0 6px 6px -4px Black;  }' : ''}
+  transition-duration: ${Transition.Fast};
+  ${props => (props.toggle ? '&:active { opacity: 0.9; }' : '')}
 `;

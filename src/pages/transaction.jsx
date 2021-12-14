@@ -42,7 +42,7 @@ export const Transaction = () => {
             <Col key={item}>
               <Hbox>
                 <Hbox.Separator />
-                <Frame paddingSize="Small" type="gray700">
+                <Frame paddingSize="Small" type="gray700" toggle="true">
                   <H3 color="gray100">#001</H3>
                 </Frame>
               </Hbox>
