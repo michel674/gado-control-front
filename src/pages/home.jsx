@@ -3,12 +3,15 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Frame } from '../atomic/atm.frame/frame';
 import { Separator } from '../atomic/atm.separator/separator.styled';
 
-import { GraphImageStyled } from '../components/graph.styled';
-
 import { H1, H2, H3, H4, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 
-import { Background } from '../components/background.styled';
+import { Line } from 'react-chartjs-2';
+
+import { Chart as ChartJS } from 'chart.js/auto';
+import { Chart } from 'react-chartjs-2';
+
+import { Color } from '../components/constants';
 
 export const Home = () => {
   const TRANSACTIONS = [
@@ -36,6 +39,25 @@ export const Home = () => {
       date: '13 de Setembro',
     },
   ];
+
+  const data = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [
+      {
+        label: 'First dataset',
+        data: [33, 53, 85, 41, 44, 65],
+        fill: true,
+        backgroundColor: Color.Primary + '33',
+        borderColor: Color.Primary,
+      },
+      {
+        label: 'Second dataset',
+        data: [33, 25, 35, 51, 54, 76],
+        fill: false,
+        borderColor: Color.Gray700,
+      },
+    ],
+  };
 
   return (
     <>
@@ -85,10 +107,7 @@ export const Home = () => {
           <Col xs={12}>
             <Frame>
               <H3>Projeção de crescimento do gado</H3>
-              <GraphImageStyled
-                src="graph.svg"
-                alt="Projeção de crescimento do gado"
-              />
+              <Line data={data} />
             </Frame>
           </Col>
         </Row>
