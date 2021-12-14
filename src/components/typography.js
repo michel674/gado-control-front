@@ -10,11 +10,11 @@ import {
 export const Title = styled.title`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Bold};
-  font-size: ${FontSize.XLarge};
+  font-size: ${FontSize.Large};
 
   line-height: ${LineHeight.Large};
 
-  color: ${Color.Grey100};
+  color: ${Color.Gray100};
 `;
 
 export const H1 = styled.h1`
@@ -69,4 +69,11 @@ export const H5Green = styled.h5`
   font-size: ${FontSize.XSmall};
   cursor: pointer;
   color: ${Color.Primary};
+`;
+
+export const Body = styled.p`
+  font-family: ${FontFamily.Primary};
+  color: ${Color.Gray400};
+
+  font-weight: ${props => (props.bold ? FontWeight.Medium : 'normal')};
 `;

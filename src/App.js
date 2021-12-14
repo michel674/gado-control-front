@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import { Separator } from './atomic/atm.separator/separator.styled';
 
 import { GlobalStyled } from './components/reset.styled';
+import { AppWrapperStyled } from './components/app-wrapper.styled';
 
 const App = () => {
   const pathname = window.location.pathname;
@@ -14,6 +15,10 @@ const App = () => {
       <GlobalStyled />
       {pathname !== '/login' && <Header />}
       <AppRoutes />
+      <AppWrapperStyled>
+        <AppRoutes />
+      </AppWrapperStyled>
+
       <Separator type="Large" />
       {pathname !== '/login' && <Navbar />}
     </BrowserRouter>
