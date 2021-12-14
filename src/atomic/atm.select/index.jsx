@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 import {
   Container,
   SelectContainer,
@@ -25,12 +23,6 @@ export const Select = ({ children }) => {
     },
   ];
 
-  const [switchToggle, setSwitchToggle] = useState(false);
-
-  const ToggleSwitch = () => {
-    switchToggle ? setSwitchToggle(false) : setSwitchToggle(true);
-    console.log(switchToggle);
-  };
   return (
     <Container>
       <SelectContainer>

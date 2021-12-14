@@ -26,11 +26,15 @@ export const SelectContainer = styled.div`
 
 export const SelectStyled = styled.select`
   font-size: 1.5rem;
-  padding: 1em 6em 1em 1.5em;
+  padding: 0.5em 6em 0.2em 1.5em;
   background-color: ${Color.Gray200};
   border-radius: 8px;
   color: ${Color.Gray600};
   border: 0;
-
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 2px ${Color.Gray700};
+  }
   appearance: none;
 `;
