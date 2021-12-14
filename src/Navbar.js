@@ -8,14 +8,14 @@ const Navbar = () => {
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/cattle" activeStyle>
+          <NavLink to="/cattles" activeStyle>
             Gado
           </NavLink>
           <NavLink to="/count" activeStyle>
             Contagem
           </NavLink>
-          <NavLink to="/star" activeStyle>
-            Estrela
+          <NavLink to="/transactions" activeStyle>
+            Transações
           </NavLink>
         </NavMenu>
       </Nav>

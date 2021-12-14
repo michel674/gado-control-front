@@ -4,7 +4,8 @@ import { Home } from './pages/home';
 import { Cattles } from './pages/cattles';
 import { Cattle } from './pages/cattle';
 import { Login } from './pages/login';
-import { Test } from './pages/test';
+import { Transactions } from './pages/transactions';
+import { Transaction } from './pages/transaction';
 
 export const AppRoutes = () => {
   return (
@@ -13,7 +14,8 @@ export const AppRoutes = () => {
       <Route path="/cattles" element={<Cattles />} />
       <Route path="/cattles/:id" element={<Cattle />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/test" element={<Test />} />
+      <Route path="/transactions" element={<Transactions />} />
+      <Route path="/transaction/:id" element={<Transaction />} />
       <Route path="/div" element={<div>Hello World</div>} />
     </Routes>
   );

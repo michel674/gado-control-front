@@ -7,14 +7,28 @@ import {
   Color,
 } from './constants';
 
+const TextColor = {
+  primary: Color.Primary,
+  gray100: Color.Gray100,
+  gray400: Color.Gray400,
+  gray700: Color.Gray700,
+  white: Color.White,
+};
+
+const TextCursor = {
+  default: 'default',
+  pointer: 'pointer',
+  text: 'text',
+};
+
 export const Title = styled.title`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Bold};
   font-size: ${FontSize.Large};
 
   line-height: ${LineHeight.Large};
-
-  color: ${Color.Gray100};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray100};
 `;
 
 export const H1 = styled.h1`
@@ -23,8 +37,8 @@ export const H1 = styled.h1`
   font-size: ${FontSize.Large};
 
   line-height: ${LineHeight.Large};
-
-  color: ${Color.Gray700};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray700};
 `;
 
 export const H2 = styled.h2`
@@ -33,8 +47,8 @@ export const H2 = styled.h2`
   font-size: ${FontSize.Medium};
 
   line-height: ${LineHeight.Medium};
-
-  color: ${Color.Gray700};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray700}; ;
 `;
 
 export const H3 = styled.h2`
@@ -43,37 +57,29 @@ export const H3 = styled.h2`
   font-size: ${FontSize.Small};
 
   line-height: ${LineHeight.Small};
-
-  color: ${Color.Gray700};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray700}; ;
 `;
 
 export const H4 = styled.h4`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Medium};
   font-size: ${FontSize.Small};
-
-  color: ${Color.Gray400};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray400}; ;
 `;
 
 export const H5 = styled.h5`
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Medium};
   font-size: ${FontSize.XSmall};
-
-  color: ${Color.Gray400};
-`;
-
-export const H5Green = styled.h5`
-  font-family: ${FontFamily.Primary};
-  font-weight: ${FontWeight.Medium};
-  font-size: ${FontSize.XSmall};
-  cursor: pointer;
-  color: ${Color.Primary};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
+  color: ${props => TextColor[props.color] || TextColor.gray400};
 `;
 
 export const Body = styled.p`
   font-family: ${FontFamily.Primary};
-  color: ${Color.Gray400};
-
+  color: ${props => TextColor[props.color] || TextColor.gray400};
+  cursor: ${props => TextCursor[props.cursor] || TextCursor.default};
   font-weight: ${props => (props.bold ? FontWeight.Medium : 'normal')};
 `;
