@@ -1,44 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { faIcon } from '../atm.font-awesome';
+import { Separator } from '../atm.separator/separator.styled';
 
-import {
-  Container,
-  SelectContainer,
-  SelectStyled,
-  ArrowStyled,
-} from './select.styled';
+import { SelectStyled, ArrowStyled, LabelStyled } from './select.styled';
 
-export const Select = ({ children }) => {
-  const GADO = [
-    {
-      caddle: 'Matriz',
-      number: '30',
-    },
-
-    {
-      caddle: 'Boi',
-      number: '27',
-    },
-
-    {
-      caddle: 'Bezerro',
-      number: '15',
-    },
-  ];
-
-  const [switchToggle, setSwitchToggle] = useState(false);
-
-  const ToggleSwitch = () => {
-    switchToggle ? setSwitchToggle(false) : setSwitchToggle(true);
-    console.log(switchToggle);
-  };
+export const Select = ({ options }) => {
+  console.log(options);
   return (
-    <Container>
-      <SelectContainer>
-        <SelectStyled name="cars" id="cars">
-          {children}
+    <>
+      <LabelStyled>
+        <SelectStyled>
+          {options.map(item => {
+            return (
+              <>
+                <option key={item.value} value={item.value}>
+                  {item.title}
+                </option>
+              </>
+            );
+          })}
+          <Separator type="Large" />
         </SelectStyled>
-        <ArrowStyled />
-      </SelectContainer>
-    </Container>
+        {faIcon.angleDown}
+      </LabelStyled>
+    </>
   );
 };

@@ -9,6 +9,12 @@ import { Button } from '../atomic/atm.button';
 import { Select } from '../atomic/atm.select';
 
 export const Cattles = () => {
+  const selectOptions = [
+    { title: 'Todos', value: '1' },
+    { title: 'Bois', value: '2' },
+    { title: 'Bezerros', value: '3' },
+    { title: 'Matrizes', value: '4' },
+  ];
   return (
     <>
       <Grid>
@@ -31,7 +37,7 @@ export const Cattles = () => {
           <Col xs={12}>
             <Hbox>
               <Hbox.Item noGrow>
-                <Select></Select>
+                <Select options={selectOptions} />
               </Hbox.Item>
 
               <Hbox.Item hAlign="flex-end">
