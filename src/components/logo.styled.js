@@ -3,6 +3,7 @@ import { Color, FontFamily, Transition, FontWeight } from './constants';
 
 export const LogoStyled = styled.a`
   font-size: 30px;
+  font-weight: ${FontWeight.Bold};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -24,7 +25,6 @@ export const LogoDarkStyled = styled.a`
   padding: 0 1rem;
   height: 100%;
   color: ${Color.Gray700};
-  font-weight: ${FontWeight.SemiBold};
   font-family: ${FontFamily.Primary};
 
   transition-duration: ${Transition.Normal};
