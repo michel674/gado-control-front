@@ -3,9 +3,9 @@ import {
   HeaderLogo,
   HeaderSeparatorStyled,
 } from './components/header.styled';
-import { UserAvatarStyled } from './components/userpc.styled';
 import { Grid } from 'react-flexbox-grid';
 import { Hbox } from './atomic/atm.box/hbox.styled';
+import { Avatar } from './atomic/atm.avatar';
 
 const Header = () => {
   return (
@@ -20,7 +20,7 @@ const Header = () => {
             </Hbox.Item>
 
             <Hbox.Item hAlign="flex-end" noGrow>
-              <UserAvatarStyled>TB</UserAvatarStyled>
+              <Avatar />
             </Hbox.Item>
           </Hbox>
         </Grid>
