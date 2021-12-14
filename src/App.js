@@ -14,7 +14,6 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyled />
       {pathname !== '/login' && <Header />}
-      <AppRoutes />
       <AppWrapperStyled>
         <AppRoutes />
       </AppWrapperStyled>
