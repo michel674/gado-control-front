@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Color, Transition } from './constants';
+import { Color, Transition } from '../../components/constants';
 
 export const ButtonStyled = styled.button`
   background-color: ${Color.Primary};

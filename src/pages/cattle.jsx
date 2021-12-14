@@ -1,76 +1,56 @@
-import { Grid, Row, Col } from 'react-flexbox-grid';
-
-import { Frame } from '../atomic/atm.frame/frame';
+import React from 'react';
+import { Grid, Row } from 'react-flexbox-grid';
 import { Separator } from '../atomic/atm.separator/separator.styled';
-
-import { H2, H3, H5 } from '../components/typography';
+import { Body, H2, H5, H3 } from '../components/typography';
+import { Tag } from '../atomic/atm.tag';
+import { BoxStyled } from '../atomic/atm.box/box.styled';
+import { MoreButton } from '../atomic/atm.more-button';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
+import { UlStyled, LiStyled } from '../atomic/atm.list/list.styled';
 
 export const Cattle = () => {
   return (
-    <>
-      <Grid>
-        <Separator type="Small" />
-
-        <Row>
-          <Col xs={12}></Col>
-        </Row>
+    <Grid>
+      <Separator type="Small" />
+      <Row>
         <Hbox>
-          <Hbox.Item noGrow vAlign="center">
-            <H2>Cabeças de gado</H2>
+          <Hbox.Item>
+            <BoxStyled vAlign="center">
+              <H2>#93084</H2> <Separator type="XNano" />
+              <Tag>Matriz</Tag>
+            </BoxStyled>
+            <Separator type="XNano" />
+            <H5>Vacinado &bull; 430 kg &bull; 3 anos</H5>
           </Hbox.Item>
 
-          <Hbox.Item hAlign="flex-end" vAlign="center">
-            <H5>39 cabeças</H5>
+          <Hbox.Item>
+            <BoxStyled hAlign="flex-end" vAlign="flex-end">
+              <MoreButton />
+            </BoxStyled>
           </Hbox.Item>
         </Hbox>
+      </Row>
 
-        <Row>
-          <Col xs={12}>
-            <Hbox>
-              <Hbox.Item noGrow>
-                <select>
-                  <option>Todos</option>
-                </select>
-              </Hbox.Item>
+      <Separator type="Medium" />
 
-              <Hbox.Item hAlign="flex-end">
-                <button>Adicionar+</button>
-              </Hbox.Item>
-            </Hbox>
-          </Col>
-        </Row>
+      <H3>Informações</H3>
+      <Separator type="XNano" />
 
-        <Separator type="Medium" />
+      <UlStyled>
+        <LiStyled>Vacinação completa</LiStyled>
+        <LiStyled>Vacinação completa</LiStyled>
+        <LiStyled>Vacinação completa</LiStyled>
+      </UlStyled>
 
-        <Row>
-          {[1, 2, 3, 4, 5, 6].map(item => {
-            return (
-              <Col xs={12} key={item}>
-                <Frame paddingSize="Small">
-                  <Hbox>
-                    <Hbox.Item noGrow>
-                      <Frame paddingSize="Small" type="primary">
-                        Boi
-                      </Frame>
-                    </Hbox.Item>
+      <Separator type="XNano" />
 
-                    <Hbox.Separator />
+      <Body bold>O intervalo médio entre gestações é de 14 meses </Body>
 
-                    <Hbox.Item noGrow>
-                      <Hbox>
-                        <H3>#342</H3> <Separator type="Nano" /> <H5>Matriz</H5>
-                      </Hbox>
-                      <H5>Vacinado &bull; 430 kg &bull; 3 anos</H5>
-                    </Hbox.Item>
-                  </Hbox>
-                </Frame>
-                <Separator type="XNano" />
-              </Col>
-            );
-          })}
-        </Row>
-      </Grid>
-    </>
+      <Separator type="Medium" />
+
+      <H3>Observações</H3>
+      <Separator type="XNano" />
+      <Body bold>As duas primeiras gestações foram em outra fazenda. </Body>
+    </Grid>
   );
 };

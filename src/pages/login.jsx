@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { Background } from '../components/background.styled';
-import { ButtonLoginStyled } from '../components/button.styled';
+import { ButtonLoginStyled } from '../atomic/atm.button/button.styled';
 import { LogoStyled, LogoDarkStyled } from '../components/logo.styled';
 import { InputBox } from '../components/inputbox.styled';
 
