@@ -21,8 +21,8 @@ export const Login = () => {
       <Grid>
         <Separator type="Large" />
         <Row>
-          <Col xs={1} md={2} lg={3} />
-          <Col xs={10} md={8} lg={6}>
+          <Col xs={1} md={2} lg={3} xl={3} />
+          <Col xs={10} md={8} lg={6} xl={5}>
             <Frame type="white">
               <Row>
                 <Col xs={12}>
