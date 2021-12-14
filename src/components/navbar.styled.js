@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Color, Spacing } from './constants';
+import { Color, FontSize, Spacing } from './constants';
 import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
@@ -33,6 +33,8 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
+
+  font-size: ${FontSize.Medium};
   cursor: pointer;
 
   &.active {
