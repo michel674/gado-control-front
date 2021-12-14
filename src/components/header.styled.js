@@ -4,7 +4,6 @@ import { Color, FontFamily, Transition, FontWeight } from './constants';
 export const Head = styled.div`
   position: absolute;
   top: 0;
-  z-index: 999;
   height: 80px;
   width: 100%;
   background-color: ${Color.Primary};

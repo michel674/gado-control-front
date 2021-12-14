@@ -9,6 +9,8 @@ import {
 } from '../../components/constants';
 
 export const UserAvatarStyled = styled.div`
+  position: relative;
+  z-index: 999;
   height: 50px; //Height = Width
   width: 50px;
 
@@ -16,7 +18,6 @@ export const UserAvatarStyled = styled.div`
   font-size: ${FontSize.Small};
 
   color: ${Color.Gray200};
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +25,7 @@ export const UserAvatarStyled = styled.div`
   background-color: ${Color.Gray700};
 
   border-radius: 50%;
-  border: 4px solid ${Color.Gray100};
+  border: 4px solid ${Color.Gray200};
 
   transition-duration: ${Transition.Normal};
   &:hover {
@@ -32,7 +33,11 @@ export const UserAvatarStyled = styled.div`
     box-shadow: 0 -6px 6px -4px ${Color.Gray300};
     background-color: ${Color.Gray500};
   }
-  cursor: default;
+  cursor: pointer;
+
+  ${props => (props.displayOnly ? 'height: 100px;' : '')}
+  ${props => (props.displayOnly ? 'width: 100px;' : '')}
+  ${props => (props.displayOnly ? 'font-size: 40px;' : '')}
 `;
 
 export const PopUpItemStyled = styled.div`
@@ -55,13 +60,26 @@ export const AvatarWrapperStyled = styled.div`
   position: relative;
 `;
 
+export const PopupBackground = styled.div`
+  z-index: 997;
+  background: ${Color.Black};
+  opacity: 0.3;
+  position: fixed;
+  padding: ${Spacing.Nano};
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+`;
+
 export const AvatarPopUpStyled = styled.div`
   position: absolute;
-  top: calc(100%);
-  right: calc(100% - 50px);
+  z-index: 998;
+  top: calc(100% - 20px);
+  right: calc(100% - 60px);
   padding: ${Spacing.Nano};
   background-color: ${Color.White};
-  width: 200px;
+  width: 0.5wh;
 
   border-radius: ${Radius.Small};
 `;
