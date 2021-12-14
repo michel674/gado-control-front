@@ -28,6 +28,7 @@ export const FrameStyled = styled.div`
   ${props => (props.toggle ? '&:hover { opacity: 0.7; }' : '')}
   ${props =>
     props.toggle ? '&:hover {box-shadow: 0 6px 6px -4px Black;  }' : ''}
+    ${props => (props.toggle ? '&:hover { border: 2px solid #19B269;}' : '')}
   transition-duration: ${Transition.Fast};
   ${props => (props.toggle ? '&:active { opacity: 0.9; }' : '')}
 `;

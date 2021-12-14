@@ -47,7 +47,7 @@ export const Transactions = () => {
           {[1, 2, 3, 4, 5, 6].map(item => {
             return (
               <Col xs={12} key={item}>
-                <Frame paddingSize="Small">
+                <Frame paddingSize="Small" toggle="true">
                   <Hbox>
                     <Hbox.Item noGrow>
                       <Frame paddingSize="Small" type="primary">

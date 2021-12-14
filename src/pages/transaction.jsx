@@ -55,14 +55,14 @@ export const Transaction = () => {
       <Separator type="Medium" />
 
       <H3>Valor da Transação</H3>
-      <Separator type="Small" />
+      <Separator type="Large" />
       <Hbox>
         <Hbox.Item hAlign="center">
           <H4>R$ 9.500</H4>
         </Hbox.Item>
       </Hbox>
 
-      <Separator type="Medium" />
+      <Separator type="Large" />
 
       <H3>Observações</H3>
       <Separator type="XNano" />
