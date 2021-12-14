@@ -4,6 +4,8 @@ import { Home } from './pages/home';
 import { Cattles } from './pages/cattles';
 import { Cattle } from './pages/cattle';
 import { Login } from './pages/login';
+import { AddTransactionPage } from './pages/add-transaction';
+import { EditTransactionPage } from './pages/edit-transaction';
 import { Transactions } from './pages/transactions';
 import { Transaction } from './pages/transaction';
 import { AddCattlePage } from './pages/add-cattle';
@@ -19,7 +21,9 @@ export const AppRoutes = () => {
       <Route path="/add-cattle" element={<AddCattlePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/transactions" element={<Transactions />} />
-      <Route path="/transaction/:id" element={<Transaction />} />
+      <Route path="/transactions/:id" element={<Transaction />} />
+      <Route path="/transactions/:id/edit" element={<EditTransactionPage />} />
+      <Route path="/add-transaction" element={<AddTransactionPage />} />
       <Route path="/div" element={<div>Hello World</div>} />
     </Routes>
   );
