@@ -8,6 +8,7 @@ import {
   faMoneyCheckAlt,
   faPaw,
   faListOl,
+  faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -22,4 +23,5 @@ export const faIcon = {
   paw: <FontAwesomeIcon icon={faPaw} />,
   cow: <SiHappycow />,
   listOl: <FontAwesomeIcon icon={faListOl} />,
+  shoppingCart: <FontAwesomeIcon icon={faShoppingCart} />,
 };

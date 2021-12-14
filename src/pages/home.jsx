@@ -12,6 +12,8 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
 
 import { Color } from '../components/constants';
+import { IconStyled } from '../components/icon.styled';
+import { faIcon } from '../atomic/atm.font-awesome';
 
 export const Home = () => {
   const TRANSACTIONS = [
@@ -125,7 +127,9 @@ export const Home = () => {
                   <Frame>
                     <Hbox>
                       <Hbox.Item vAlign="center" noGrow>
-                        <Frame type="primary">Caixa</Frame>
+                        <Frame type="primary">
+                          <IconStyled>{faIcon.shoppingCart}</IconStyled>
+                        </Frame>
                       </Hbox.Item>
                       <Hbox.Separator />
                       <Hbox.Item vAlign="center">
