@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Color, Radius, Spacing } from '../../components/constants';
 
-const frameType = {
+const frameColor = {
   primary: Color.Primary + '34',
-  secondary: Color.Gray100,
+  gray100: Color.Gray100,
+  gray700: Color.Gray700,
   white: Color.White,
 };
 
@@ -18,7 +19,7 @@ export const FrameStyled = styled.div`
 
   padding: ${props => Spacing[props.paddingSize] || Spacing.Medium};
 
-  background-color: ${props => frameType[props.type] || frameType.secondary};
+  background-color: ${props => frameColor[props.type] || frameColor.gray100};
   cursor: ${props => frameCursor[props.cursor] || frameCursor.default};
   border-radius: ${Radius.Medium};
 

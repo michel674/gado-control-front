@@ -12,7 +12,7 @@ import { ButtonLoginStyled } from '../atomic/atm.button/button.styled';
 import { LogoStyled, LogoDarkStyled } from '../components/logo.styled';
 import { InputBox } from '../components/inputbox.styled';
 
-import { H1, H2, H3, H4, H5, H5Green } from '../components/typography';
+import { H1, H2, H3, H4, H5 } from '../components/typography';
 
 export const Login = () => {
   return (
@@ -103,7 +103,9 @@ export const Login = () => {
                   </Hbox.Item>
                   <Hbox.Separator />
                   <Hbox.Item>
-                    <H5Green>Faça um Cadastro</H5Green>
+                    <H5 color="primary" cursor="pointer">
+                      Faça um Cadastro
+                    </H5>
                   </Hbox.Item>
                 </Hbox>
               </Row>
