@@ -20,6 +20,7 @@ export const FontFamily = {
 };
 
 export const FontSize = {
+  XXSmall: '0.8rem',
   XSmall: '1rem',
   Small: '1.2rem',
   Medium: '1.6rem',

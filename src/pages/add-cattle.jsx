@@ -5,6 +5,8 @@ import { H2, H3 } from '../components/typography';
 import { Input } from '../atomic/atm.input';
 import { Select } from '../atomic/atm.select';
 import { Button } from '../atomic/atm.button';
+import { Checkbox } from '../atomic/atm.checkbox';
+import { TextArea } from '../atomic/atm.textarea';
 
 export const AddCattlePage = () => {
   const cattleOptions = [
@@ -12,6 +14,21 @@ export const AddCattlePage = () => {
     { title: 'Bezerro', value: '2' },
     { title: 'Boi', value: '3' },
   ];
+  const tagColor = [
+    { title: 'Vermelho', value: '1' },
+    { title: 'Amarelo', value: '2' },
+    { title: 'Azul', value: '3' },
+  ];
+  const CATTLEVACINES = [
+    { title: 'Febre aftosa', value: '1' },
+    { title: 'Brucelose', value: '2' },
+    { title: 'Clostridioses', value: '3' },
+    { title: 'Botulismo', value: '4' },
+    { title: 'Leptospirose', value: '5' },
+    { title: 'Raiva', value: '6' },
+    { title: 'Ibr bvd', value: '7' },
+  ];
+
   return (
     <div>
       <Grid>
@@ -20,10 +37,6 @@ export const AddCattlePage = () => {
         <Separator type="XNano" />
         <Row>
           <Col xs={6}>
-            <Input name="idTag" label="Tag de identificação" expand />
-          </Col>
-
-          <Col xs={6}>
             <Select
               name="cattleType"
               label="Matriz ou bezerro"
@@ -31,50 +44,55 @@ export const AddCattlePage = () => {
               expand
             />
           </Col>
+          <Col xs={6}>
+            <Input name="idTag" label="Tag de identificação" expand />
+          </Col>
+
+          <Col xs={6}>
+            <Separator />
+            <Select
+              name="color Tag"
+              label="Cor da Tag"
+              options={tagColor}
+              expand
+            />
+          </Col>
         </Row>
 
         <Separator type="Medium" />
 
-        <H3>Ficha médica</H3>
+        <H3>Vacinas</H3>
         <Separator type="Nano" />
 
         <Row>
-          <Col xs={6}>
-            <Input name="weight" label="Peso em Kg" expand />
-            <Separator type="Small" />
-          </Col>
-
-          <Col xs={6}>
-            <Input
-              name="vaccination
-"
-              label="vacinação"
-              expand
-            />
-            <Separator type="Small" />
-          </Col>
-
+          {CATTLEVACINES.map(({ title, value }, index) => {
+            return (
+              <>
+                <Col>
+                  <Checkbox>{title}</Checkbox>
+                  <Separator />
+                </Col>
+              </>
+            );
+          })}
+        </Row>
+        <Separator />
+        <Row>
           <Col xs={6}>
             <Input name="born" label="Nascimento" type="date" expand />
           </Col>
 
           <Col xs={6}>
-            <Input
-              name="gestation"
-              label="Número de gestações"
-              type="number"
-              expand
-            />
+            <Input name="Weight" label="Peso" type="number" expand />
             <Separator type="Small" />
           </Col>
+        </Row>
+        <Separator />
+        <Row>
+          <Col xs={12}>
+            <H3>Observações</H3>
 
-          <Col xs={9}>
-            <Input
-              name="gestationInterval"
-              label="Intervalo médio entre gestações (meses)"
-              type="number"
-              expand
-            />
+            <TextArea />
           </Col>
         </Row>
 

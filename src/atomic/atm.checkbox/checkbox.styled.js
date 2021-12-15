@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { Color, FontSize, FontFamily } from '../../components/constants';
+import {
+  Color,
+  FontSize,
+  FontFamily,
+  FontWeight,
+} from '../../components/constants';
 
 export const CheckboxContainer = styled.div`
   width: 120px;
@@ -26,6 +31,8 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 export const Text = styled.label`
   color: ${props => (props.checked ? '#FFF' : '#555')};
   font-family: ${FontFamily.Primary};
+  font-size: ${FontSize.XXSmall};
+  font-weight: ${FontWeight.SemiBold};
 `;
 
 export const StyledCheckbox = styled.label`
