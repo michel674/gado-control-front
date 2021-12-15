@@ -23,6 +23,7 @@ export const Home = () => {
       amount: 9,
       value: '-R$9.576',
       date: '13 de Setembro',
+      vendor: 'Nathan',
     },
 
     {
@@ -31,6 +32,7 @@ export const Home = () => {
       amount: 9,
       value: '-R$9.576',
       date: '13 de Setembro',
+      vendor: 'Nathan',
     },
 
     {
@@ -39,6 +41,7 @@ export const Home = () => {
       amount: 9,
       value: '-R$9.576',
       date: '13 de Setembro',
+      vendor: 'Nathan',
     },
   ];
 
@@ -67,7 +70,7 @@ export const Home = () => {
       <Grid>
         <Row>
           <Col xs={4}>
-            <Frame>
+            <Frame toggle="true">
               <Hbox>
                 <Hbox.Item hAlign="center">
                   <H4>Matrizes</H4>
@@ -79,7 +82,7 @@ export const Home = () => {
           </Col>
 
           <Col xs={4}>
-            <Frame>
+            <Frame toggle="true">
               <Hbox>
                 <Hbox.Item hAlign="center">
                   <H4>Bois</H4>
@@ -91,7 +94,7 @@ export const Home = () => {
           </Col>
 
           <Col xs={4}>
-            <Frame>
+            <Frame toggle="true">
               <Hbox>
                 <Hbox.Item hAlign="center">
                   <H4>Bezerros</H4>
@@ -120,35 +123,39 @@ export const Home = () => {
           <H2>Atividade nos últimos 3 meses</H2>
           <Separator type="Large" />
 
-          {TRANSACTIONS.map(({ type, amount, cattle, date, value }, index) => {
-            return (
-              <>
-                <Col xs={12} key={index}>
-                  <Frame>
-                    <Hbox>
-                      <Hbox.Item vAlign="center" noGrow>
-                        <Frame type="primary">
-                          <IconStyled>{faIcon.shoppingCart}</IconStyled>
-                        </Frame>
-                      </Hbox.Item>
-                      <Hbox.Separator />
-                      <Hbox.Item vAlign="center">
-                        <H3>
-                          {type} de {amount} {cattle}
-                        </H3>
-                        <Separator type="XNano" />
-                        <H5>{date}</H5>
-                      </Hbox.Item>
-                      <Hbox.Item vAlign="center" noGrow>
-                        <H4>{value}</H4>
-                      </Hbox.Item>
-                    </Hbox>
-                  </Frame>
-                </Col>
-                <Separator type="XNano" />
-              </>
-            );
-          })}
+          {TRANSACTIONS.map(
+            ({ type, amount, cattle, date, value, vendor }, index) => {
+              return (
+                <>
+                  <Col xs={12} key={index}>
+                    <Frame toggle="true">
+                      <Hbox>
+                        <Hbox.Item vAlign="center" noGrow>
+                          <Frame type="primary">
+                            <IconStyled size="Medium">
+                              {faIcon.shoppingCart}
+                            </IconStyled>
+                          </Frame>
+                        </Hbox.Item>
+                        <Hbox.Separator />
+                        <Hbox.Item vAlign="center">
+                          <H3>
+                            {type} de {amount} {cattle} de {vendor}
+                          </H3>
+                          <Separator type="XNano" />
+                          <H5>{date}</H5>
+                        </Hbox.Item>
+                        <Hbox.Item vAlign="center" noGrow>
+                          <H4>{value}</H4>
+                        </Hbox.Item>
+                      </Hbox>
+                    </Frame>
+                  </Col>
+                  <Separator type="XNano" />
+                </>
+              );
+            },
+          )}
         </Row>
       </Grid>
     </>

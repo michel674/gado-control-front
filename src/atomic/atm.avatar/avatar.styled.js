@@ -79,7 +79,7 @@ export const AvatarPopUpStyled = styled.div`
   right: calc(100% - 60px);
   padding: ${Spacing.Nano};
   background-color: ${Color.White};
-  width: 0.5wh;
+  max-width: 1000%;
 
   border-radius: ${Radius.Small};
 `;

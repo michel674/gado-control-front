@@ -26,22 +26,29 @@ export const Avatar = () => {
           <>
             <AvatarPopUpStyled>
               <Grid>
-                <Hbox>
-                  <Hbox.Item noGrow>
-                    <UserAvatarStyled displayOnly>TB</UserAvatarStyled>
-                  </Hbox.Item>
-                  <Hbox.Separator />
-                  <Hbox.Item>
+                <Row>
+                  <Col>
                     <Hbox>
+                      <Hbox.Item noGrow>
+                        <UserAvatarStyled displayOnly>TB</UserAvatarStyled>
+                      </Hbox.Item>
+                      <Hbox.Separator />
                       <Hbox.Item vAlign="center">
                         <H3>Thiago Lam Brawerman</H3>
                         <H5>Admin</H5>
-                        <PopUpItemStyled>Editar perfil</PopUpItemStyled>
-                        <PopUpItemStyled>Sair</PopUpItemStyled>
                       </Hbox.Item>
                     </Hbox>
-                  </Hbox.Item>
-                </Hbox>
+                  </Col>
+                </Row>
+                <Separator type="Nano" />
+                <Row>
+                  <Col xs={12}>
+                    <PopUpItemStyled>Editar</PopUpItemStyled>
+                  </Col>
+                  <Col xs={12}>
+                    <PopUpItemStyled>Salvar</PopUpItemStyled>
+                  </Col>
+                </Row>
               </Grid>
             </AvatarPopUpStyled>
           </>

@@ -9,6 +9,11 @@ import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { UlStyled, LiStyled } from '../atomic/atm.list/list.styled';
 import { Frame } from '../atomic/atm.frame/frame';
 
+import { faIcon } from '../atomic/atm.font-awesome';
+
+import { RoundButton } from '../atomic/atm.roundbutton';
+import { RoundButtonStyled } from '../atomic/atm.roundbutton/roundbutton.styled';
+
 export const Transaction = () => {
   return (
     <Grid>
@@ -67,6 +72,7 @@ export const Transaction = () => {
       <H3>Observações</H3>
       <Separator type="XNano" />
       <Body bold>As duas primeiras gestações foram em outra fazenda. </Body>
+      <RoundButtonStyled>{faIcon.edit}</RoundButtonStyled>
     </Grid>
   );
 };

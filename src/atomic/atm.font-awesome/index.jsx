@@ -12,7 +12,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { BsFillCheckCircleFill } from 'react-icons/bs';
+
 import { SiHappycow } from 'react-icons/si';
+import { GiCow } from 'react-icons/gi';
+
+import { MdEdit } from 'react-icons/md';
 
 export const faIcon = {
   home: <FontAwesomeIcon icon={faHome} />,
@@ -22,6 +27,9 @@ export const faIcon = {
   moneyCheckAlt: <FontAwesomeIcon icon={faMoneyCheckAlt} />,
   paw: <FontAwesomeIcon icon={faPaw} />,
   cow: <SiHappycow />,
+  cowBody: <GiCow />,
+  check: <BsFillCheckCircleFill />,
   listOl: <FontAwesomeIcon icon={faListOl} />,
   shoppingCart: <FontAwesomeIcon icon={faShoppingCart} />,
+  edit: <MdEdit />,
 };

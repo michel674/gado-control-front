@@ -8,6 +8,10 @@ import { Hbox } from '../atomic/atm.box/hbox.styled';
 import { Button } from '../atomic/atm.button';
 import { Select } from '../atomic/atm.select';
 
+import { RoundButton } from '../atomic/atm.roundbutton';
+import { IconStyled } from '../components/icon.styled';
+import { faIcon } from '../atomic/atm.font-awesome';
+
 export const Transactions = () => {
   const selectOptions = [
     { title: 'Mais Recente', value: '1' },
@@ -57,7 +61,9 @@ export const Transactions = () => {
                   <Hbox>
                     <Hbox.Item noGrow>
                       <Frame paddingSize="Small" type="primary">
-                        Cart
+                        <IconStyled size="Medium">
+                          {faIcon.shoppingCart}
+                        </IconStyled>
                       </Frame>
                     </Hbox.Item>
 
@@ -80,6 +86,7 @@ export const Transactions = () => {
             );
           })}
         </Row>
+        <RoundButton>+</RoundButton>
       </Grid>
     </>
   );
