@@ -11,6 +11,10 @@ import { Checkbox } from '../atomic/atm.checkbox';
 import { RoundButton } from '../atomic/atm.roundbutton';
 import { faIcon } from '../atomic/atm.font-awesome';
 import { IconStyled } from '../components/icon.styled';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { LinkStyled } from '../atomic/atm.link/link.styled';
+import { useRequest } from '../hooks/useRequest.hook';
 
 export const Cattles = () => {
   const selectOptions = [
@@ -36,6 +40,8 @@ export const Cattles = () => {
     { title: 'Mais velho', value: '2' },
     { title: 'Maior', value: '3' },
   ];
+
+  const cattleActivities = [{}];
 
   return (
     <>
@@ -81,7 +87,9 @@ export const Cattles = () => {
               </Hbox.Item>
               <Hbox.Separator />
               <Hbox.Item hAlign="flex-end">
-                <Button>Adicionar +</Button>
+                <LinkStyled to="/add-cattle">
+                  <Button>Adicionar +</Button>
+                </LinkStyled>
               </Hbox.Item>
             </Hbox>
           </Col>
@@ -90,28 +98,37 @@ export const Cattles = () => {
         <Separator type="Medium" />
 
         <Row>
-          {[1, 2, 3, 4, 5, 6].map(item => {
+          {cattleActivities?.map(item => {
+            const today = new Date();
+            const birthDate = new Date(item.nascimento);
+            const age = today.getFullYear() - birthDate.getFullYear();
+
             return (
               <Col xs={12} key={item}>
-                <Frame paddingSize="Small" toggle="true">
-                  <Hbox>
-                    <Hbox.Item vAlign="center" noGrow>
-                      <Frame paddingSize="Small" type="primary">
-                        <IconStyled size="Large">{faIcon.cowBody}</IconStyled>
-                      </Frame>
-                    </Hbox.Item>
+                <LinkStyled to="/cattles/1">
+                  <Frame paddingSize="Small" clickable>
+                    <Hbox>
+                      <Hbox.Item noGrow>
+                        <Frame paddingSize="Small" type="primary">
+                          Boi
+                        </Frame>
+                      </Hbox.Item>
 
-                    <Hbox.Separator />
+                      <Hbox.Separator />
 
-                    <Hbox.Item noGrow>
-                      <Hbox hAlign="center">
-                        <H3>#342</H3> <Separator type="Nano" /> <H5>Matriz</H5>
-                      </Hbox>
-
-                      <H5>Vacinado &bull; 430 kg &bull; 3 anos</H5>
-                    </Hbox.Item>
-                  </Hbox>
-                </Frame>
+                      <Hbox.Item noGrow>
+                        <Hbox>
+                          <H3>{item?.n_etiqueta}</H3> <Separator type="Nano" />{' '}
+                          <H5>{item?.tipo}</H5>
+                        </Hbox>
+                        <H5>
+                          {' '}
+                          430 kg &bull; {age} {age === 1 ? 'ano' : 'anos'}
+                        </H5>
+                      </Hbox.Item>
+                    </Hbox>
+                  </Frame>
+                </LinkStyled>
                 <Separator type="XNano" />
               </Col>
             );

@@ -15,7 +15,7 @@ import { LooseCattlePage } from './pages/loose-cattle';
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Home />} />
       <Route path="/cattles" element={<Cattles />} />
       <Route path="/cattles/:id" element={<Cattle />} />
       <Route path="/cattles/:id/edit" element={<EditCattlePage />} />
