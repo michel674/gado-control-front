@@ -9,7 +9,7 @@ import {
 import { faIcon } from '../atm.font-awesome';
 
 export const Checkbox = ({ children, ...props }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
 
   function handleCheckboxChange() {
     setChecked(!checked);
@@ -17,7 +17,12 @@ export const Checkbox = ({ children, ...props }) => {
 
   return (
     <CheckboxContainer checked={checked} onClick={handleCheckboxChange}>
-      <HiddenCheckbox onChange={handleCheckboxChange} checked={checked} />
+      <HiddenCheckbox
+        onChange={handleCheckboxChange}
+        name={props.name}
+        id={props.id}
+        value={checked}
+      />
       <StyledCheckbox>
         <IconStyled checked={checked}>{faIcon.check}</IconStyled>
       </StyledCheckbox>
