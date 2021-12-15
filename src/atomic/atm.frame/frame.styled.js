@@ -27,13 +27,15 @@ export const FrameStyled = styled.div`
   box-sizing: border-box;
   transition-duration: ${Transition.Normal};
 
-  cursor: ${props => (props.clickable ? 'pointer' : 'normal')};
+  border: 0px solid transparent;
 
   ${props =>
-    props.toggle &&
+    props.clickable &&
     `
+    cursor:pointer;
   &:hover {
       opacity: 0.7;
+      border:2px solid transparent;
     }
     &:active { opacity: 0.9; }
   `}

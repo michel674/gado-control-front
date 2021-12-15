@@ -19,19 +19,22 @@ export const RoundButtonStyled = styled.button`
   font-size: ${props => fontSize[props.size] || fontSize.Medium};
   font-weight: ${FontWeight.Bold};
   position:sticky;
-  bottom:70px;
+  bottom:80px;
+  top:0px;
   right:0px;
+  left: 40px;
 
 
   width: 70px;
   height 70px;
-  border: none;
+  border: 0px solid transparent;
   border-radius: 50%;
 
   transition-duration: ${Transition.Normal};
   &:hover {
     box-shadow: 0 6px 6px -4px ${Color.Gray300};
     background-color: ${Color.PrimaryLight};
+    border: 2px solid transparent;
   }
   &:active {
     transition-duration: ${Transition.Fast};
