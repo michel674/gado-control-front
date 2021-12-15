@@ -18,7 +18,6 @@ const App = () => {
         <AppRoutes />
       </AppWrapperStyled>
 
-      <Separator type="Large" />
       {pathname !== '/login' && <Navbar />}
     </BrowserRouter>
   );

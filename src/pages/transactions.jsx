@@ -87,8 +87,8 @@ export const Transactions = () => {
             );
           })}
         </Row>
-        <RoundButton>+</RoundButton>
       </Grid>
+      <RoundButton>+</RoundButton>
     </>
   );
 };

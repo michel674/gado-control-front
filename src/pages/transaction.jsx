@@ -77,6 +77,8 @@ export const Transaction = () => {
       <H3>Observações</H3>
       <Separator type="XNano" />
       <Body bold>As duas primeiras gestações foram em outra fazenda. </Body>
+
+      <Separator type="Large" />
       <RoundButtonStyled size="Small">{faIcon.edit}</RoundButtonStyled>
     </Grid>
   );
