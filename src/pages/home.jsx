@@ -6,7 +6,7 @@ import { Separator } from '../atomic/atm.separator/separator.styled';
 import { H1, H2, H3, H4, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 import { Chart as ChartJS } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
@@ -14,6 +14,9 @@ import { Chart } from 'react-chartjs-2';
 import { Color } from '../components/constants';
 import { IconStyled } from '../components/icon.styled';
 import { faIcon } from '../atomic/atm.font-awesome';
+import { useEffect } from 'react';
+import { useRequest } from '../hooks/useRequest.hook';
+import { LinkStyled } from '../atomic/atm.link/link.styled';
 
 export const Home = () => {
   const TRANSACTIONS = [
@@ -45,21 +48,42 @@ export const Home = () => {
     },
   ];
 
-  const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  const { data, request } = useRequest({ route: '/home' });
+
+  useEffect(() => {
+    request();
+  }, [request]);
+
+  console.log(data);
+
+  const cows = data?.n_matrizes;
+
+  const bulls = data?.n_bois;
+
+  const calfMale = data?.n_bezerros_male;
+
+  const calfFemale = data?.n_bezerros_female;
+
+  const graph = data?.graph;
+
+  console.log(graph?.female_y_series);
+
+  const barData = {
+    labels: graph?.x_series,
     datasets: [
       {
-        label: 'First dataset',
-        data: [33, 53, 85, 41, 44, 65],
-        fill: true,
+        label: 'Bezerros',
         backgroundColor: Color.Primary + '33',
         borderColor: Color.Primary,
+        borderWidth: 2,
+        data: graph?.male_y_series,
       },
       {
-        label: 'Second dataset',
-        data: [33, 25, 35, 51, 54, 76],
-        fill: false,
-        borderColor: Color.Gray700,
+        label: 'Bezerras',
+        backgroundColor: Color.Gray500 + '33',
+        borderColor: Color.Gray500,
+        borderWidth: 2,
+        data: graph?.female_y_series,
       },
     ],
   };
@@ -69,40 +93,60 @@ export const Home = () => {
       <Separator type="Small" />
       <Grid>
         <Row>
-          <Col xs={4}>
-            <Frame toggle="true">
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Matrizes</H4>
-                  <Separator type="Small" />
-                  <H1>12</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
+          <Col xs={3}>
+            <LinkStyled to="/cattles">
+              <Frame clickable>
+                <Hbox>
+                  <Hbox.Item hAlign="center">
+                    <H4>Vacas</H4>
+                    <Separator type="Small" />
+                    <H1>{cows}</H1>
+                  </Hbox.Item>
+                </Hbox>
+              </Frame>
+            </LinkStyled>
           </Col>
 
-          <Col xs={4}>
-            <Frame toggle="true">
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bois</H4>
-                  <Separator type="Small" />
-                  <H1>18</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
+          <Col xs={3}>
+            <LinkStyled to="/cattles">
+              <Frame clickable>
+                <Hbox>
+                  <Hbox.Item hAlign="center">
+                    <H4>Touros</H4>
+                    <Separator type="Small" />
+                    <H1>{bulls}</H1>
+                  </Hbox.Item>
+                </Hbox>
+              </Frame>
+            </LinkStyled>
           </Col>
 
-          <Col xs={4}>
-            <Frame toggle="true">
-              <Hbox>
-                <Hbox.Item hAlign="center">
-                  <H4>Bezerros</H4>
-                  <Separator type="Small" />
-                  <H1>67</H1>
-                </Hbox.Item>
-              </Hbox>
-            </Frame>
+          <Col xs={3}>
+            <LinkStyled to="/cattles">
+              <Frame clickable>
+                <Hbox>
+                  <Hbox.Item hAlign="center">
+                    <H4>Bezerros</H4>
+                    <Separator type="Small" />
+                    <H1>{calfMale}</H1>
+                  </Hbox.Item>
+                </Hbox>
+              </Frame>
+            </LinkStyled>
+          </Col>
+
+          <Col xs={3}>
+            <LinkStyled to="/cattles">
+              <Frame clickable>
+                <Hbox>
+                  <Hbox.Item hAlign="center">
+                    <H4>Bezerras</H4>
+                    <Separator type="Small" />
+                    <H1>{calfFemale}</H1>
+                  </Hbox.Item>
+                </Hbox>
+              </Frame>
+            </LinkStyled>
           </Col>
         </Row>
 
@@ -111,8 +155,8 @@ export const Home = () => {
         <Row>
           <Col xs={12}>
             <Frame>
-              <H3>Projeção de crescimento do gado</H3>
-              <Line data={data} />
+              <H3>{graph?.title}</H3>
+              <Bar data={barData} />
             </Frame>
           </Col>
         </Row>

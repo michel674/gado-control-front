@@ -6,7 +6,7 @@ const Navbar = () => {
     <>
       <Nav>
         <NavMenu>
-          <NavLink to="/" activeStyle>
+          <NavLink to="/dashboard" activeStyle>
             {faIcon.home}
           </NavLink>
           <NavLink to="/cattles" activeStyle>

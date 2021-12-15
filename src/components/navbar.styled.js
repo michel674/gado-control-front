@@ -8,11 +8,12 @@ export const Nav = styled.nav`
   z-index: 990;
 
   padding: ${Spacing.Small};
+  padding-bottom: ${Spacing.Medium};
   box-sizing: border-box;
 
   width: 100%;
 
-  box-shadow: 0px -6px 6px -4px ${Color.Gray300};
+  box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
