@@ -7,10 +7,16 @@ import {
   Spacing,
 } from '../../components/constants';
 
+const fontSize = {
+  Large: '4rem',
+  Medium: '3.5rem',
+  Small: '2.5rem',
+};
+
 export const RoundButtonStyled = styled.button`
   background-color: ${Color.Primary};
   color: ${Color.White};
-  font-size: 3.5rem;
+  font-size: ${props => fontSize[props.size] || fontSize.Medium};
   font-weight: ${FontWeight.Bold};
   position:sticky;
   bottom:70px;

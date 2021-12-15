@@ -13,6 +13,7 @@ import { faIcon } from '../atomic/atm.font-awesome';
 
 import { RoundButton } from '../atomic/atm.roundbutton';
 import { RoundButtonStyled } from '../atomic/atm.roundbutton/roundbutton.styled';
+import { TagStyled } from '../atomic/atm.tag/tag.styled';
 
 export const Transaction = () => {
   return (
@@ -42,13 +43,17 @@ export const Transaction = () => {
 
       <Separator type="XNano" />
       <Row>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map(item => {
+        {[1, 2, 3, 4, 5, 6, 7].map(item => {
           return (
             <Col key={item}>
               <Hbox>
                 <Hbox.Separator />
                 <Frame paddingSize="Small" type="gray700" toggle="true">
-                  <H3 color="gray100">#001</H3>
+                  <Hbox.Item hAlign="center">
+                    <H3 color="gray100">#001</H3>
+                  </Hbox.Item>
+
+                  <TagStyled color="red">Vermelho</TagStyled>
                 </Frame>
               </Hbox>
               <Separator type="Nano" />
@@ -65,6 +70,9 @@ export const Transaction = () => {
         <Hbox.Item hAlign="center">
           <H4>R$ 9.500</H4>
         </Hbox.Item>
+        <Hbox.Item noGrow>
+          <Tag>Compra</Tag>
+        </Hbox.Item>
       </Hbox>
 
       <Separator type="Large" />
@@ -72,7 +80,7 @@ export const Transaction = () => {
       <H3>Observações</H3>
       <Separator type="XNano" />
       <Body bold>As duas primeiras gestações foram em outra fazenda. </Body>
-      <RoundButtonStyled>{faIcon.edit}</RoundButtonStyled>
+      <RoundButtonStyled size="Small">{faIcon.edit}</RoundButtonStyled>
     </Grid>
   );
 };

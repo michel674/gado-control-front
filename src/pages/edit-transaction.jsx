@@ -1,16 +1,18 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Separator } from '../atomic/atm.separator/separator.styled';
-import { H2, H3 } from '../components/typography';
+import { H2, H3, H5 } from '../components/typography';
 import { Input } from '../atomic/atm.input';
 import { Select } from '../atomic/atm.select';
 import { Button } from '../atomic/atm.button';
+import { TextArea } from '../atomic/atm.textarea';
+import { Hbox } from '../atomic/atm.box/hbox.styled';
 
 export const EditTransactionPage = () => {
-  const cattleOptions = [
-    { title: 'Matriz', value: '1' },
-    { title: 'Bezerro', value: '2' },
-    { title: 'Boi', value: '3' },
+  const selectOptions = [
+    { title: '-------', value: '1' },
+    { title: 'Compra', value: '2' },
+    { title: 'Venda', value: '3' },
   ];
   return (
     <div>
@@ -24,23 +26,21 @@ export const EditTransactionPage = () => {
           </Col>
         </Row>
 
-        <Separator type="Medium" />
+        <Separator type="Small" />
 
-        <H3>Envolvido</H3>
         <Row>
-          <Col xs={12}>
-            <Input name="idTag" expand />
+          <Col xs={7}>
+            <Input name="idTag" label="Envolvido" expand />
           </Col>
-        </Row>
-        <Separator type="Nano" />
-
-        <Row>
-
-          <Col xs={6}>
+          <Col xs={5}>
             <Input name="transactiondate" label="Data" type="date" expand />
           </Col>
+        </Row>
 
-          <Col xs={6}>
+        <Separator type="Small" />
+
+        <Row>
+          <Col xs={7}>
             <Input
               name="value"
               label="Valor da Transação"
@@ -49,12 +49,22 @@ export const EditTransactionPage = () => {
             />
             <Separator type="Small" />
           </Col>
-
+          <Col xs={5}>
+            <H5 color="gray700">Compra</H5>
+            <Select options={selectOptions} />
+          </Col>
         </Row>
+        <Separator type="Small" />
+        <Row>
+          <Col xs={12}>
+            <H3>Observações</H3>
 
+            <TextArea />
+          </Col>
+        </Row>
         <Separator type="Medium" />
 
-        <Button type="primary">Editar</Button>
+        <Button type="primary">Salvar</Button>
       </Grid>
     </div>
   );

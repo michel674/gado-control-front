@@ -46,7 +46,7 @@ export const Avatar = () => {
                     <PopUpItemStyled>Editar</PopUpItemStyled>
                   </Col>
                   <Col xs={12}>
-                    <PopUpItemStyled>Salvar</PopUpItemStyled>
+                    <PopUpItemStyled>Sair</PopUpItemStyled>
                   </Col>
                 </Row>
               </Grid>
