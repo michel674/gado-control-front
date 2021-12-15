@@ -58,7 +58,12 @@ export const LooseCattlePage = () => {
 
         <Separator type="Medium" />
 
-        <ConfirmButton type="primary" tag="#0001">
+        <ConfirmButton
+          type="primary"
+          tag="#0001"
+          description="Deseja mesmo dar baixa ao Tag:"
+          title="Confirmar Baixa"
+        >
           Confirmar
         </ConfirmButton>
       </Grid>

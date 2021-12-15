@@ -11,7 +11,7 @@ import { Hbox } from '../atm.box/hbox.styled';
 import { Separator } from '../atm.separator/separator.styled';
 import { Tag } from '../atm.tag';
 
-export const ConfirmButton = ({ children, tag }) => {
+export const ConfirmButton = ({ children, tag, description, title }) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -29,7 +29,7 @@ export const ConfirmButton = ({ children, tag }) => {
                 <Col xs={12}>
                   <Hbox>
                     <Hbox.Item hAlign="center">
-                      <H2>Confirmar Baixa</H2>
+                      <H2>{title}</H2>
                     </Hbox.Item>
                   </Hbox>
                 </Col>
@@ -40,7 +40,7 @@ export const ConfirmButton = ({ children, tag }) => {
                   <Hbox>
                     <Hbox.Separator />
                     <Hbox.Item hAlign="center" noGrow>
-                      <Body>Deseja mesmo dar baixa ao Tag:</Body>
+                      <Body>{description}</Body>
                     </Hbox.Item>
                     <Hbox.Separator />
                     <Hbox.Item noGrow>
