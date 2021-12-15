@@ -1,5 +1,4 @@
 import React from 'react';
-import { faIcon } from '../atm.font-awesome';
 import { Separator } from '../atm.separator/separator.styled';
 
 import {
@@ -8,15 +7,14 @@ import {
   SelectWrapperStyled,
 } from './select.styled';
 
-export const Select = ({ options, name, expand, label }) => {
-  console.log(options);
+export const Select = ({ options, name, expand, label, id }) => {
   return (
     <SelectWrapperStyled expand={expand}>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>
       <Separator type="XNano" />
 
-      <SelectStyled>
-        {options.map(item => {
+      <SelectStyled name={name} id={id}>
+        {options?.map(item => {
           return (
             <>
               <option key={item.value} value={item.value}>

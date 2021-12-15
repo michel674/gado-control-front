@@ -9,100 +9,154 @@ import { Select } from '../atomic/atm.select';
 import { Checkbox } from '../atomic/atm.checkbox';
 
 import { RoundButton } from '../atomic/atm.roundbutton';
-import { faIcon } from '../atomic/atm.font-awesome';
-import { IconStyled } from '../components/icon.styled';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+
+import { useEffect } from 'react';
 import { LinkStyled } from '../atomic/atm.link/link.styled';
 import { useRequest } from '../hooks/useRequest.hook';
 
 export const Cattles = () => {
-  const selectOptions = [
-    { title: 'Todos', value: '1' },
-    { title: 'Bois', value: '2' },
-    { title: 'Bezerros', value: '3' },
-    { title: 'Matrizes', value: '4' },
-  ];
-  const selectCores = [
-    { title: 'Vermelho', value: '1' },
-    { title: 'Verde', value: '2' },
-    { title: 'Amarelo', value: '3' },
-    { title: 'Azul', value: '4' },
-  ];
   const selectEstado = [
-    { title: 'Ativos', value: '1' },
-    { title: 'Vendido', value: '2' },
-    { title: 'Mortos', value: '3' },
+    { title: 'Ativos', value: 'ativos' },
+    { title: 'Vendido', value: 'vendidos' },
+    { title: 'Mortos', value: 'mortos' },
   ];
 
-  const selectOrdena = [
-    { title: 'Mais novo', value: '1' },
-    { title: 'Mais velho', value: '2' },
-    { title: 'Maior', value: '3' },
+  const selectOrder = [
+    { title: 'Mais novo', value: 'maisnovo' },
+    { title: 'Mais velho', value: 'maisvelho' },
+    { title: 'Nº crescente', value: 'cresente' },
+    { title: 'Nº decrescente', value: 'decrescente' },
   ];
 
-  const cattleActivities = [{}];
+  const { data, request } = useRequest({ route: '/cabeca/list' });
+  const { data: tagColors, request: getTagColors } = useRequest({
+    route: '/brincos/get',
+  });
+
+  useEffect(() => {
+    request({
+      params: {
+        boi_checked: 1,
+        cria_checked: 1,
+        matriz_checked: 1,
+        cor: 'all',
+        categoria: 'ativos',
+        order_by: 'maisnovo',
+      },
+    });
+  }, [request]);
+
+  const cattles = data?.Cabecas;
+
+  useEffect(() => {});
+
+  const onSubmit = e => {
+    e?.preventDefault();
+    const state = document?.querySelector('#state')?.value;
+    const orderBy = document?.querySelector('#orderBy')?.value;
+    const color = document?.querySelector('#color')?.value;
+    const bulls = document?.querySelector('#bulls')?.value;
+    const cows = document?.querySelector('#cows')?.value;
+    const calfs = document?.querySelector('#calfs')?.value;
+
+    const params = {
+      route: '/cabeca/list',
+      params: {
+        boi_checked: bulls === 'true' ? 1 : 0,
+        cria_checked: calfs === 'true' ? 1 : 0,
+        matriz_checked: cows === 'true' ? 1 : 0,
+        cor: color,
+        categoria: state,
+        order_by: orderBy,
+      },
+    };
+
+    request(params);
+  };
+
+  useEffect(() => {
+    getTagColors({ params: null });
+  }, [getTagColors]);
+
+  const selectColors = tagColors?.map(item => {
+    return { title: item?.fields?.cor_nome, value: item?.pk };
+  });
 
   return (
     <>
       <Grid>
         <Separator type="Small" />
+        <form onSubmit={onSubmit}>
+          <Row>
+            <Col xs={12}></Col>
+          </Row>
+          <Hbox>
+            <Hbox.Item noGrow vAlign="center">
+              <H2>Cabeças de gado</H2>
+            </Hbox.Item>
 
-        <Row>
-          <Col xs={12}></Col>
-        </Row>
-        <Hbox>
-          <Hbox.Item noGrow vAlign="center">
-            <H2>Cabeças de gado</H2>
-          </Hbox.Item>
+            <Hbox.Item hAlign="flex-end" vAlign="center">
+              <H5>
+                {cattles?.length} {cattles?.length === 1 ? 'cabeça' : 'cabeças'}
+              </H5>
+            </Hbox.Item>
+          </Hbox>
+          <Row>
+            <Checkbox name="bulls" id="bulls">
+              Bois
+            </Checkbox>
+            <Checkbox name="cows" id="cows">
+              Vacas
+            </Checkbox>
+            <Checkbox name="calfs" id="calfs">
+              Bezerros
+            </Checkbox>
+          </Row>
 
-          <Hbox.Item hAlign="flex-end" vAlign="center">
-            <H5>39 cabeças</H5>
-          </Hbox.Item>
-        </Hbox>
-        <Row>
-          <Checkbox>Bois</Checkbox>
-          <Checkbox>Vacas</Checkbox>
-          <Checkbox>Bezerros</Checkbox>
-        </Row>
+          <Separator type="Small" />
 
-        <Separator type="Small" />
-
-        <Row>
-          <Col xs={12}>
-            <Hbox>
-              <Hbox.Item noGrow>
-                <H5>Estado</H5>
-                <Select options={selectEstado} />
-              </Hbox.Item>
-              <Hbox.Separator />
-              <Hbox.Item noGrow>
-                <H5>Cor da Tag</H5>
-                <Select options={selectCores} />
-              </Hbox.Item>
-              <Hbox.Separator />
-              <Hbox.Item noGrow>
-                <H5>Ordem</H5>
-                <Select options={selectOrdena} />
-              </Hbox.Item>
-              <Hbox.Separator />
-              <Hbox.Item hAlign="flex-end">
-                <LinkStyled to="/add-cattle">
-                  <Button>Adicionar +</Button>
-                </LinkStyled>
-              </Hbox.Item>
-            </Hbox>
-          </Col>
-        </Row>
+          <Row>
+            <Col xs={12}>
+              <Hbox>
+                <Hbox.Item noGrow>
+                  <Select
+                    options={selectEstado || []}
+                    label="Estado"
+                    name="state"
+                    id="state"
+                  />
+                </Hbox.Item>
+                <Hbox.Separator />
+                <Hbox.Item noGrow>
+                  <Select
+                    options={selectColors}
+                    label="Cor do brinco"
+                    name="color"
+                    id="color"
+                  />
+                </Hbox.Item>
+                <Hbox.Separator />
+                <Hbox.Item noGrow>
+                  <Select
+                    options={selectOrder}
+                    label="Ordenar por"
+                    name="orderBy"
+                    id="orderBy"
+                  />
+                </Hbox.Item>
+                <Hbox.Separator />
+                <Hbox.Item hAlign="flex-end">
+                  <Button> Filtrar</Button>
+                </Hbox.Item>
+              </Hbox>
+            </Col>
+          </Row>
+        </form>
 
         <Separator type="Medium" />
 
         <Row>
-          {cattleActivities?.map(item => {
-            const today = new Date();
-            const birthDate = new Date(item.nascimento);
-            const age = today.getFullYear() - birthDate.getFullYear();
-
+          {cattles?.map(item => {
             return (
               <Col xs={12} key={item}>
                 <LinkStyled to="/cattles/1">
@@ -121,10 +175,7 @@ export const Cattles = () => {
                           <H3>{item?.n_etiqueta}</H3> <Separator type="Nano" />{' '}
                           <H5>{item?.tipo}</H5>
                         </Hbox>
-                        <H5>
-                          {' '}
-                          430 kg &bull; {age} {age === 1 ? 'ano' : 'anos'}
-                        </H5>
+                        <H5> 430 kg &bull; {item?.idade}</H5>
                       </Hbox.Item>
                     </Hbox>
                   </Frame>

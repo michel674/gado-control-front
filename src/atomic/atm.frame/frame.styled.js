@@ -40,5 +40,7 @@ export const FrameStyled = styled.div`
     &:active { opacity: 0.9; }
   `}
 
+  ${props => props.color && `background-color: ${props.color};`};
+
   transition-duration: ${Transition.Fast};
 `;
