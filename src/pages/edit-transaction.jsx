@@ -64,7 +64,7 @@ export const EditTransactionPage = () => {
         </Row>
         <Separator type="Medium" />
 
-        <Button type="primary">Editar</Button>
+        <Button type="primary">Salvar</Button>
       </Grid>
     </div>
   );

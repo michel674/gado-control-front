@@ -16,7 +16,7 @@ const fontSize = {
 export const RoundButtonStyled = styled.button`
   background-color: ${Color.Primary};
   color: ${Color.White};
-  font-size: ${props => fontSize[props.size] || fontSize.medium};
+  font-size: ${props => fontSize[props.size] || fontSize.Medium};
   font-weight: ${FontWeight.Bold};
   position:sticky;
   bottom:70px;
