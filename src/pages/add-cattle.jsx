@@ -16,7 +16,7 @@ export const AddCattlePage = () => {
     <div>
       <Grid>
         <Separator type="Medium" />
-        <H2>Adicionar cabeça de gado</H2>
+        <H2>Registrar cabeça de gado</H2>
         <Separator type="XNano" />
         <Row>
           <Col xs={6}>
@@ -80,7 +80,7 @@ export const AddCattlePage = () => {
 
         <Separator type="Medium" />
 
-        <Button type="primary">Salvar</Button>
+        <Button type="primary">Registrar</Button>
       </Grid>
     </div>
   );
