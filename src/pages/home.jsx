@@ -6,7 +6,7 @@ import { Separator } from '../atomic/atm.separator/separator.styled';
 import { H1, H2, H3, H4, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
 
-import { Line, Bar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 import { Chart as ChartJS } from 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
@@ -17,6 +17,7 @@ import { faIcon } from '../atomic/atm.font-awesome';
 import { useEffect } from 'react';
 import { useRequest } from '../hooks/useRequest.hook';
 import { LinkStyled } from '../atomic/atm.link/link.styled';
+import { formatDayAndMonthToHuman } from '../utils/format-date';
 
 export const Home = () => {
   const TRANSACTIONS = [
@@ -54,8 +55,6 @@ export const Home = () => {
     request();
   }, [request]);
 
-  console.log(data);
-
   const cows = data?.n_matrizes;
 
   const bulls = data?.n_bois;
@@ -65,8 +64,6 @@ export const Home = () => {
   const calfFemale = data?.n_bezerros_female;
 
   const graph = data?.graph;
-
-  console.log(graph?.female_y_series);
 
   const barData = {
     labels: graph?.x_series,
@@ -88,10 +85,13 @@ export const Home = () => {
     ],
   };
 
+  const transactions = data?.transactions;
+
   return (
     <>
       <Separator type="Small" />
       <Grid>
+        <Separator type="Medium" />
         <Row>
           <Col xs={3}>
             <LinkStyled to="/cattles">
@@ -100,7 +100,7 @@ export const Home = () => {
                   <Hbox.Item hAlign="center">
                     <H4>Vacas</H4>
                     <Separator type="Small" />
-                    <H1>{cows}</H1>
+                    {cows ? <H1>{cows}</H1> : 'carregando...'}
                   </Hbox.Item>
                 </Hbox>
               </Frame>
@@ -150,7 +150,7 @@ export const Home = () => {
           </Col>
         </Row>
 
-        <Separator type="Small" />
+        <Separator type="Medium" />
 
         <Row>
           <Col xs={12}>
@@ -167,30 +167,33 @@ export const Home = () => {
           <H2>Atividade nos últimos 3 meses</H2>
           <Separator type="Large" />
 
-          {TRANSACTIONS.map(
-            ({ type, amount, cattle, date, value, vendor }, index) => {
+          {transactions?.map(
+            ({ descricao, valor, tipo, data: transactionDate }, index) => {
               return (
                 <>
                   <Col xs={12} key={index}>
                     <Frame toggle="true">
                       <Hbox>
                         <Hbox.Item vAlign="center" noGrow>
-                          <Frame type="primary">
-                            <IconStyled size="Medium">
+                          <Frame
+                            type={tipo === 'Compra' ? 'primary' : 'secondary'}
+                          >
+                            <IconStyled
+                              size="Medium"
+                              type={tipo === 'Compra' ? 'primary' : 'secondary'}
+                            >
                               {faIcon.shoppingCart}
                             </IconStyled>
                           </Frame>
                         </Hbox.Item>
                         <Hbox.Separator />
                         <Hbox.Item vAlign="center">
-                          <H3>
-                            {type} de {amount} {cattle} de {vendor}
-                          </H3>
+                          <H3>{descricao}</H3>
                           <Separator type="XNano" />
-                          <H5>{date}</H5>
+                          <H5>{formatDayAndMonthToHuman(transactionDate)}</H5>
                         </Hbox.Item>
                         <Hbox.Item vAlign="center" noGrow>
-                          <H4>{value}</H4>
+                          <H4>R$ {valor?.toFixed(2)}</H4>
                         </Hbox.Item>
                       </Hbox>
                     </Frame>

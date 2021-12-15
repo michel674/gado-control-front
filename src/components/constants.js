@@ -13,6 +13,11 @@ export const Color = {
   Gray500: '#465950',
   Gray600: '#274134',
   Gray700: '#163124',
+
+  Success: '#2ABB4A',
+  Error: '#E02323',
+  Warning: '#D4AD22',
+  Info: '#1F8AC6',
 };
 
 export const FontFamily = {

@@ -3,6 +3,7 @@ import { Color, Radius, Spacing, Transition } from '../../components/constants';
 
 const frameColor = {
   primary: Color.Primary + '34',
+  secondary: Color.Error + '34',
   gray100: Color.Gray100,
   gray700: Color.Gray700,
   white: Color.White,

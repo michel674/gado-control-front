@@ -8,9 +8,17 @@ const fontSize = {
   Large: '2rem',
 };
 
-export const IconStyled = styledComponents.span`
-  font-size: ${props => fontSize[props.size] || fontSize.small};
+const iconColor = {
+  primary: Color.Primary,
+  secondary: Color.Error,
+  gray100: Color.Gray100,
+  gray700: Color.Gray700,
+  white: Color.White,
+};
 
-  color: ${Color.Primary};
+export const IconStyled = styledComponents.span`
+  font-size: ${props => fontSize[props.size] || fontSize.Small};
+
+  color: ${props => iconColor[props.type] || iconColor.primary};
 
 `;
