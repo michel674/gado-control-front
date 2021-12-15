@@ -19,6 +19,8 @@ import { GiCow } from 'react-icons/gi';
 
 import { MdEdit } from 'react-icons/md';
 
+import { AiOutlineArrowDown } from 'react-icons/ai';
+
 export const faIcon = {
   home: <FontAwesomeIcon icon={faHome} />,
   ellipsisV: <FontAwesomeIcon icon={faEllipsisV} />,
@@ -32,4 +34,5 @@ export const faIcon = {
   listOl: <FontAwesomeIcon icon={faListOl} />,
   shoppingCart: <FontAwesomeIcon icon={faShoppingCart} />,
   edit: <MdEdit />,
+  arrowDown: <AiOutlineArrowDown />,
 };

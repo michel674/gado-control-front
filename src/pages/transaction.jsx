@@ -70,9 +70,6 @@ export const Transaction = () => {
         <Hbox.Item hAlign="center">
           <H4>R$ 9.500</H4>
         </Hbox.Item>
-        <Hbox.Item noGrow>
-          <Tag>Compra</Tag>
-        </Hbox.Item>
       </Hbox>
 
       <Separator type="Large" />

@@ -58,10 +58,11 @@ export const PopUpItemStyled = styled.div`
 
 export const AvatarWrapperStyled = styled.div`
   position: relative;
+  z-index: 999;
 `;
 
 export const PopupBackground = styled.div`
-  z-index: 997;
+  z-index: 999;
   background: ${Color.Black};
   opacity: 0.3;
   position: fixed;
@@ -74,7 +75,7 @@ export const PopupBackground = styled.div`
 
 export const AvatarPopUpStyled = styled.div`
   position: absolute;
-  z-index: 998;
+
   top: calc(100% - 20px);
   right: calc(100% - 60px);
   padding: ${Spacing.Nano};
