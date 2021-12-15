@@ -5,14 +5,15 @@ import { H2, H3, Body } from '../components/typography';
 import { Input } from '../atomic/atm.input';
 import { Select } from '../atomic/atm.select';
 import { Button } from '../atomic/atm.button';
-import { TextArea } from '../atomic/atm.textarea';
-
+/*import { TextArea } from '../atomic/atm.textarea';*/
+import { ConfirmButton } from '../atomic/atm.confirmbutton';
 export const LooseCattlePage = () => {
   const cattleOptions = [
     { title: 'Matriz', value: '1' },
     { title: 'Bezerro', value: '2' },
     { title: 'Boi', value: '3' },
   ];
+
   return (
     <div>
       <Grid>
@@ -40,25 +41,26 @@ export const LooseCattlePage = () => {
 
         <Separator type="Medium" />
 
-        <H3>Dados do Falecimento</H3>
+        <H3>Data do Falecimento</H3>
         <Separator type="Nano" />
 
         <Row>
           <Col xs={6}>
-            <Input name="born" label="Data" type="date" expand />
+            <Input name="born" label="" type="date" expand />
           </Col>
         </Row>
+        <Separator type="Medium" />
         <Row>
           <Col xs={12}>
             <H3>Observações</H3>
-
-            <TextArea />
           </Col>
         </Row>
 
         <Separator type="Medium" />
 
-        <Button type="primary">Editar</Button>
+        <ConfirmButton type="primary" tag="#0001">
+          Confirmar
+        </ConfirmButton>
       </Grid>
     </div>
   );
