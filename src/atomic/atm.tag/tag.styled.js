@@ -7,9 +7,17 @@ import {
   Spacing,
 } from '../../components/constants';
 
+const tagColor = {
+  primary: Color.Primary,
+  red: 'Red',
+  yellow: 'yellow',
+  green: 'green',
+  blue: 'blue',
+};
+
 export const TagStyled = styled.div`
   padding: ${Spacing.XNano} ${Spacing.Nano};
-  background-color: ${Color.Primary};
+  background-color: ${props => tagColor[props.color] || tagColor.primary};
   border-radius: ${Radius.Medium};
   cursor: default;
   font-family: ${FontFamily.Primary};
