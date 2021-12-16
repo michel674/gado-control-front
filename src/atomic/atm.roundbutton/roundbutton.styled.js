@@ -24,9 +24,13 @@ export const RoundButtonStyled = styled.button`
   right:0px;
   left: 40px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  width: 70px;
-  height 70px;
+
+  width: 50px;
+  height 50px;
   border: 0px solid transparent;
   border-radius: 50%;
 

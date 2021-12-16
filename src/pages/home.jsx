@@ -52,7 +52,7 @@ export const Home = () => {
   const { data, request } = useRequest({ route: '/home' });
 
   useEffect(() => {
-    request();
+    request({ params: {} });
   }, [request]);
 
   const cows = data?.n_matrizes;

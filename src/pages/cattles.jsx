@@ -13,6 +13,8 @@ import { RoundButton } from '../atomic/atm.roundbutton';
 import { useEffect } from 'react';
 import { LinkStyled } from '../atomic/atm.link/link.styled';
 import { useRequest } from '../hooks/useRequest.hook';
+import { faIcon } from '../atomic/atm.font-awesome';
+import { IconStyled } from '../components/icon.styled';
 
 export const Cattles = () => {
   const selectEstado = [
@@ -164,7 +166,7 @@ export const Cattles = () => {
                     <Hbox>
                       <Hbox.Item noGrow>
                         <Frame paddingSize="Small" type="primary">
-                          Boi
+                          <IconStyled>{faIcon.cowBody}</IconStyled>
                         </Frame>
                       </Hbox.Item>
 
@@ -186,7 +188,9 @@ export const Cattles = () => {
           })}
         </Row>
       </Grid>
-      <RoundButton>+</RoundButton>
+      <LinkStyled to="/add-cattle">
+        <RoundButton size="Medium">+</RoundButton>
+      </LinkStyled>
     </>
   );
 };
