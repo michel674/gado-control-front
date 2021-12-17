@@ -12,8 +12,8 @@ const Navbar = () => {
           <NavLink to="/cattles" activeStyle>
             {faIcon.cow}
           </NavLink>
-          <NavLink to="/count" activeStyle>
-            {faIcon.listOl}
+          <NavLink to="/tag-color" activeStyle>
+            {faIcon.tag}
           </NavLink>
           <NavLink to="/transactions" activeStyle>
             {faIcon.moneyCheckAlt}

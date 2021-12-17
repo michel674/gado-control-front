@@ -11,6 +11,7 @@ import { Transaction } from './pages/transaction';
 import { AddCattlePage } from './pages/add-cattle';
 import { EditCattlePage } from './pages/edit-cattle';
 import { LooseCattlePage } from './pages/loose-cattle';
+import { PickColorPage } from './pages/pick-color';
 
 export const AppRoutes = () => {
   return (
@@ -26,6 +27,7 @@ export const AppRoutes = () => {
       <Route path="/transactions/:id" element={<Transaction />} />
       <Route path="/transactions/:id/edit" element={<EditTransactionPage />} />
       <Route path="/add-transaction" element={<AddTransactionPage />} />
+      <Route path="/tag-color" element={<PickColorPage />} />
       <Route path="/div" element={<div>Hello World</div>} />
     </Routes>
   );
