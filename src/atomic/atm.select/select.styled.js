@@ -15,11 +15,13 @@ export const LabelStyled = styled.label`
 `;
 
 export const SelectStyled = styled.select`
-  font-size: ${FontSize.XSmall};
   padding: ${Spacing.Nano} ${Spacing.Small};
   background-color: ${Color.Gray200};
   border-radius: ${Radius.Small};
   color: ${Color.Gray600};
+  font-family: ${FontFamily.Primary};
+  font-size: ${FontSize.XSmall};
+  font-weight: ${FontWeight.Regular};
   border: 0;
 
   width: 100%;
@@ -29,4 +31,12 @@ export const SelectStyled = styled.select`
 
 export const SelectWrapperStyled = styled.div`
   width: ${props => (props.expand ? '100%' : 'fit-content')};
+`;
+
+export const StyledOption = styled.option`
+  color: ${Color.Gray600};
+  font-family: ${FontFamily.Primary};
+  font-size: ${FontSize.XSmall};
+  font-weight: ${FontWeight.Regular};
+  cursor: pointer;
 `;

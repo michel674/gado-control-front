@@ -88,7 +88,9 @@ export const Transactions = () => {
           })}
         </Row>
       </Grid>
-      <RoundButton>+</RoundButton>
+      <LinkStyled to="/add-transaction">
+        <RoundButton>+</RoundButton>
+      </LinkStyled>
     </>
   );
 };

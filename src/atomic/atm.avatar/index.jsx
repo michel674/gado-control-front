@@ -10,6 +10,7 @@ import {
   PopUpItemStyled,
   PopupBackground,
 } from './avatar.styled';
+import { LinkStyled } from '../atm.link/link.styled';
 
 export const Avatar = () => {
   const [open, setOpen] = useState(false);
@@ -46,7 +47,9 @@ export const Avatar = () => {
                     <PopUpItemStyled>Editar</PopUpItemStyled>
                   </Col>
                   <Col xs={12}>
-                    <PopUpItemStyled>Sair</PopUpItemStyled>
+                    <LinkStyled to="/login">
+                      <PopUpItemStyled>Sair</PopUpItemStyled>
+                    </LinkStyled>
                   </Col>
                 </Row>
               </Grid>

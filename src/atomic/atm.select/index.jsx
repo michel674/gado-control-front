@@ -5,6 +5,7 @@ import {
   SelectStyled,
   LabelStyled,
   SelectWrapperStyled,
+  StyledOption,
 } from './select.styled';
 
 export const Select = ({ options, name, expand, label, id }) => {
@@ -17,9 +18,9 @@ export const Select = ({ options, name, expand, label, id }) => {
         {options?.map(item => {
           return (
             <>
-              <option key={item.value} value={item.value}>
+              <StyledOption key={item.value} value={item.value}>
                 {item.title}
-              </option>
+              </StyledOption>
             </>
           );
         })}

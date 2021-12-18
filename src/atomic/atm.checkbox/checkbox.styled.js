@@ -7,6 +7,7 @@ import {
 } from '../../components/constants';
 
 export const CheckboxContainer = styled.div`
+  cursor: pointer;
   width: 120px;
   height: 35px;
   padding-left: 5px;
@@ -29,10 +30,11 @@ export const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 `;
 
 export const Text = styled.label`
-  color: ${props => (props.checked ? '#FFF' : '#555')};
+  color: ${props => (props.checked ? Color.White : Color.Gray600)};
   font-family: ${FontFamily.Primary};
-  font-size: ${FontSize.XXSmall};
-  font-weight: ${FontWeight.SemiBold};
+  font-size: ${FontSize.XSmall};
+  font-weight: ${FontWeight.Regular};
+  cursor: pointer;
 `;
 
 export const StyledCheckbox = styled.label`
@@ -49,6 +51,7 @@ export const StyledCheckbox = styled.label`
     filter: invert(75%) sepia(11%) saturate(6042%) hue- rotate(30deg)
       brightness(105%) contrast(68%);
   }
+  cursor: pointer;
 `;
 
 export const IconStyled = styled.div`

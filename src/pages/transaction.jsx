@@ -14,6 +14,7 @@ import { faIcon } from '../atomic/atm.font-awesome';
 import { RoundButton } from '../atomic/atm.roundbutton';
 import { RoundButtonStyled } from '../atomic/atm.roundbutton/roundbutton.styled';
 import { TagStyled } from '../atomic/atm.tag/tag.styled';
+import { LinkStyled } from '../atomic/atm.link/link.styled';
 
 export const Transaction = () => {
   return (
@@ -79,7 +80,9 @@ export const Transaction = () => {
       <Body bold>As duas primeiras gestações foram em outra fazenda. </Body>
 
       <Separator type="Large" />
-      <RoundButtonStyled size="Small">{faIcon.edit}</RoundButtonStyled>
+      <LinkStyled to="edit">
+        <RoundButtonStyled size="Small">{faIcon.edit}</RoundButtonStyled>
+      </LinkStyled>
     </Grid>
   );
 };

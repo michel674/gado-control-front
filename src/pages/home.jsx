@@ -172,7 +172,7 @@ export const Home = () => {
               return (
                 <>
                   <Col xs={12} key={index}>
-                    <Frame toggle="true">
+                    <Frame clickable>
                       <Hbox>
                         <Hbox.Item vAlign="center" noGrow>
                           <Frame
