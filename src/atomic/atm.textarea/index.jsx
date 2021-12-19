@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledTextArea } from './textarea.styled';
 
 export const TextArea = props => {
-  let { name, placeholder, value, onChange } = props;
+  let { name, placeholder, value, onChange, defaultValue } = props;
   return (
     <div>
       <StyledTextArea
@@ -12,6 +12,7 @@ export const TextArea = props => {
         rows={6}
         value={value}
         onChange={onChange}
+        defaultValue={defaultValue}
       />
     </div>
   );

@@ -3,15 +3,15 @@ import {
   ColorTagStyled,
   ColorTagLabel,
   ColorTagSpacing,
+  ColorTagWrapperStyled,
 } from './colortag.styled';
 
-export const ColorTag = ({ children, color }) => {
+export const ColorTag = ({ children, color, width, height }) => {
   return (
-    <div>
-      <ColorTagStyled color={color} />
-      <ColorTagSpacing />
+    <ColorTagWrapperStyled>
+      <ColorTagStyled color={color} width={width} height={height} />
       <ColorTagSpacing />
       <ColorTagLabel>{children}</ColorTagLabel>
-    </div>
+    </ColorTagWrapperStyled>
   );
 };

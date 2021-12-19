@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Separator } from '../atm.separator/separator.styled';
 
 import {
@@ -8,13 +8,41 @@ import {
   StyledOption,
 } from './select.styled';
 
-export const Select = ({ options, name, expand, label, id }) => {
+export const Select = ({
+  options,
+  name,
+  expand,
+  label,
+  id,
+  onChange,
+  defaultValue,
+}) => {
+  const [value, setValue] = useState(defaultValue);
+
+  const handleChange = e => {
+    setValue(e.target.value);
+    console.log('value', value);
+    if (onChange) {
+      onChange();
+    }
+  };
+
+  useEffect(() => {
+    setValue(defaultValue);
+  }, [defaultValue]);
+
+  console.log('defaultValue', defaultValue);
   return (
     <SelectWrapperStyled expand={expand}>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>
       <Separator type="XNano" />
 
-      <SelectStyled name={name} id={id}>
+      <SelectStyled
+        name={name}
+        id={id}
+        onChange={value => handleChange(value)}
+        value={value}
+      >
         {options?.map(item => {
           return (
             <>

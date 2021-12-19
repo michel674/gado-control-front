@@ -10,6 +10,7 @@ import {
   faListOl,
   faShoppingCart,
   faTag,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -37,4 +38,5 @@ export const faIcon = {
   edit: <MdEdit />,
   arrowDown: <AiOutlineArrowDown />,
   tag: <FontAwesomeIcon icon={faTag} />,
+  times: <FontAwesomeIcon icon={faTimes} />,
 };

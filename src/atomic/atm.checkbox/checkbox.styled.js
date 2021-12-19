@@ -4,13 +4,13 @@ import {
   FontSize,
   FontFamily,
   FontWeight,
+  Spacing,
 } from '../../components/constants';
 
 export const CheckboxContainer = styled.div`
   cursor: pointer;
-  width: 120px;
   height: 35px;
-  padding-left: 5px;
+  padding: ${Spacing.XNano} ${Spacing.Nano};
   margin: 0px 4px;
   border-radius: 5px;
 

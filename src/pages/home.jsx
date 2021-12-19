@@ -204,6 +204,7 @@ export const Home = () => {
             },
           )}
         </Row>
+        <Separator type="Large" />
       </Grid>
     </>
   );

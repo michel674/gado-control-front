@@ -9,7 +9,7 @@ import {
 import { faIcon } from '../atm.font-awesome';
 
 export const Checkbox = ({ children, ...props }) => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(props.initialValue);
 
   function handleCheckboxChange() {
     setChecked(!checked);

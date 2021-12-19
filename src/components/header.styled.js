@@ -26,9 +26,6 @@ export const HeaderLogo = styled.a`
   font-weight: ${FontWeight.Bold};
 
   transition-duration: ${Transition.Normal};
-  &:hover {
-    color: ${Color.PrimaryLight};
-  }
 `;
 
 export const HeaderSeparatorStyled = styled.div`

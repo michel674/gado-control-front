@@ -2,13 +2,27 @@ import React from 'react';
 import { InputStyled, InputWrapperStyled, LabelStyled } from './input.styled';
 import { Separator } from '../atm.separator/separator.styled';
 
-export const Input = ({ name, label, expand, type }) => {
+export const Input = ({
+  name,
+  id,
+  label,
+  expand,
+  type,
+  defaultValue,
+  disabled,
+}) => {
   return (
     <>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>
       <Separator type="XNano" />
       <InputWrapperStyled expand={expand}>
-        <InputStyled name={name} type={type} />
+        <InputStyled
+          name={name}
+          type={type}
+          id={id}
+          defaultValue={defaultValue}
+          disabled={disabled}
+        />
       </InputWrapperStyled>
     </>
   );

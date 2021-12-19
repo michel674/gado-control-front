@@ -159,9 +159,10 @@ export const Cattles = () => {
 
         <Row>
           {cattles?.map(item => {
+            console.log(item);
             return (
               <Col xs={12} key={item}>
-                <LinkStyled to="/cattles/1">
+                <LinkStyled to={`/cattles/${item?.id}`}>
                   <Frame paddingSize="Small" clickable>
                     <Hbox>
                       <Hbox.Item noGrow>

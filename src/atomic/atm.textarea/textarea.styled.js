@@ -9,7 +9,7 @@ import {
 export const StyledTextArea = styled.textarea`
   appearance: none;
   background: ${Color.Gray200};
-  width: 90%;
+  width: 95%;
   display: block;
   font-family: ${FontFamily.Primary};
   font-weight: ${FontWeight.Regular};

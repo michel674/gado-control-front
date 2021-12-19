@@ -1,13 +1,13 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
-export const useRequest = ({ method, baseURL, route, bodyData }) => {
+export const useRequest = ({ method, baseURL, route }) => {
   const [data, setData] = useState(null);
   const [errorCode, setErrorCode] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const request = useCallback(
-    async ({ params }) => {
+    async ({ params, bodyData, withCredentials }) => {
       try {
         setLoading(true);
         const response = await axios.request({
@@ -16,6 +16,7 @@ export const useRequest = ({ method, baseURL, route, bodyData }) => {
           url: route,
           params,
           data: bodyData,
+          withCredentials: withCredentials || false,
         });
         setData(response.data);
       } catch (err) {

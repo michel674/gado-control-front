@@ -27,4 +27,10 @@ export const TagStyled = styled.div`
   height: fit-content;
 
   box-sizing: border-box;
+
+  ${props =>
+    props.cattleTag &&
+    `
+    background-color: ${props.cattleTag};
+  `}
 `;
