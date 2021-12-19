@@ -10,6 +10,7 @@ export const Input = ({
   type,
   defaultValue,
   disabled,
+  step,
 }) => {
   return (
     <>
@@ -22,6 +23,7 @@ export const Input = ({
           id={id}
           defaultValue={defaultValue}
           disabled={disabled}
+          step={step}
         />
       </InputWrapperStyled>
     </>

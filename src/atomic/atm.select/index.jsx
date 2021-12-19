@@ -21,7 +21,6 @@ export const Select = ({
 
   const handleChange = e => {
     setValue(e.target.value);
-    console.log('value', value);
     if (onChange) {
       onChange();
     }
@@ -31,7 +30,6 @@ export const Select = ({
     setValue(defaultValue);
   }, [defaultValue]);
 
-  console.log('defaultValue', defaultValue);
   return (
     <SelectWrapperStyled expand={expand}>
       <LabelStyled htmlFor={name}>{label}</LabelStyled>
