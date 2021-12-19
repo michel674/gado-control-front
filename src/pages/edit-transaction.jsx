@@ -14,57 +14,70 @@ export const EditTransactionPage = () => {
     { title: 'Compra', value: '2' },
     { title: 'Venda', value: '3' },
   ];
+
+  const onSubmit = () => {
+    const idTag = document?.querySelector('#idTag')?.value;
+  };
   return (
     <div>
       <Grid>
-        <Separator type="Medium" />
-        <H2>Editar Transação</H2>
-        <Separator type="XNano" />
-        <Row>
-          <Col xs={12}>
-            <Input name="idTag" label="Lista de Tags" expand />
-          </Col>
-        </Row>
+        <form onSubmit={onSubmit}>
+          <Separator type="Medium" />
+          <H2>Editar Transação</H2>
+          <Separator type="XNano" />
+          <Row>
+            <Col xs={12}>
+              <Input name="idTags" id="idTags" label="Lista de Tags" expand />
+            </Col>
+          </Row>
 
-        <Separator type="Small" />
+          <Separator type="Small" />
 
-        <Row>
-          <Col xs={7}>
-            <Input name="idTag" label="Envolvido" expand />
-          </Col>
-          <Col xs={5}>
-            <Input name="transactiondate" label="Data" type="date" expand />
-          </Col>
-        </Row>
+          <Row>
+            <Col xs={7}>
+              <Input name="person" id="person" label="Envolvido" expand />
+            </Col>
+            <Col xs={5}>
+              <Input
+                name="transactionDate"
+                id="transactionDate"
+                label="Data"
+                type="date"
+                expand
+              />
+            </Col>
+          </Row>
 
-        <Separator type="Small" />
+          <Separator type="Small" />
 
-        <Row>
-          <Col xs={7}>
-            <Input
-              name="value"
-              label="Valor da Transação"
-              type="number"
-              expand
-            />
-            <Separator type="Small" />
-          </Col>
-          <Col xs={5}>
-            <H5 color="gray700">Compra</H5>
-            <Select options={selectOptions} />
-          </Col>
-        </Row>
-        <Separator type="Small" />
-        <Row>
-          <Col xs={12}>
-            <H3>Observações</H3>
+          <Row>
+            <Col xs={7}>
+              <Input
+                name="value"
+                id="value"
+                label="Valor da Transação"
+                type="number"
+                expand
+              />
+              <Separator type="Small" />
+            </Col>
+            <Col xs={5}>
+              <H5 color="gray700">Compra</H5>
+              <Select id="type" options={selectOptions} />
+            </Col>
+          </Row>
+          <Separator type="Small" />
+          <Row>
+            <Col xs={12}>
+              <H3>Observações</H3>
 
-            <TextArea />
-          </Col>
-        </Row>
-        <Separator type="Medium" />
+              <TextArea name="observations" id="observations" />
+            </Col>
+          </Row>
+          <Separator type="Medium" />
 
-        <Button type="primary">Salvar</Button>
+          <Button type="primary">Salvar</Button>
+        </form>
       </Grid>
     </div>
   );

@@ -7,7 +7,7 @@ export const useRequest = ({ method, baseURL, route }) => {
   const [loading, setLoading] = useState(false);
 
   const request = useCallback(
-    async ({ params, bodyData, withCredentials }) => {
+    async ({ params, bodyData, withCredentials, onSuccess }) => {
       try {
         setLoading(true);
         const response = await axios.request({
@@ -19,6 +19,7 @@ export const useRequest = ({ method, baseURL, route }) => {
           withCredentials: withCredentials || false,
         });
         setData(response.data);
+        onSuccess(response.data);
       } catch (err) {
         if (err.isAxiosError) {
           const error = err;

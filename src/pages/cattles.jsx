@@ -159,7 +159,6 @@ export const Cattles = () => {
 
         <Row>
           {cattles?.map(item => {
-            console.log(item);
             return (
               <Col xs={12} key={item}>
                 <LinkStyled to={`/cattles/${item?.id}`}>

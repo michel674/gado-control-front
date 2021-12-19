@@ -46,7 +46,6 @@ export const AddCattlePage = () => {
     getCattleMother({ params: null });
   }, [getCattleMother]);
 
-  console.log('mothers', mothers);
 
   const selectColors = tagColors?.map(item => {
     return { title: item?.fields?.cor_nome, value: item?.pk };
@@ -61,7 +60,6 @@ export const AddCattlePage = () => {
 
   const onChangeCattleType = value => {
     setCattleSelect(value.target.value);
-    console.log(cattleSelect);
   };
 
   const onSubmit = e => {

@@ -33,10 +33,7 @@ export const FrameStyled = styled.div`
     props.clickable &&
     `
     cursor:pointer;
-  &:hover {
-      background-color:${frameColor.primary};
 
-    }
     &:active { opacity: 0.9; }
   `}
 

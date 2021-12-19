@@ -22,7 +22,7 @@ export const Select = ({
   const handleChange = e => {
     setValue(e.target.value);
     if (onChange) {
-      onChange();
+      onChange(e.target.value);
     }
   };
 

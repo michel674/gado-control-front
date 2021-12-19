@@ -33,7 +33,6 @@ export const EditCattlePage = () => {
     getCattleData({ params: null });
   }, [getCattleData]);
 
-  console.log('cattleData', cattleData);
 
   const { data: tagColors, request: getTagColors } = useRequest({
     route: '/brincos/get',
@@ -56,7 +55,6 @@ export const EditCattlePage = () => {
   }),
     [cattleData];
 
-  console.log(cattleData?.cabeca?.tipo);
 
   useEffect(() => {
     getTagColors({ params: null });

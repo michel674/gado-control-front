@@ -11,6 +11,7 @@ export const Input = ({
   defaultValue,
   disabled,
   step,
+  placeholder,
 }) => {
   return (
     <>
@@ -24,6 +25,7 @@ export const Input = ({
           defaultValue={defaultValue}
           disabled={disabled}
           step={step}
+          placeholder={placeholder}
         />
       </InputWrapperStyled>
     </>

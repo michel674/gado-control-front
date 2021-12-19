@@ -172,10 +172,11 @@ export const Home = () => {
               return (
                 <>
                   <Col xs={12} key={index}>
-                    <Frame clickable>
+                    <Frame clickable paddingSize="Small">
                       <Hbox>
                         <Hbox.Item vAlign="center" noGrow>
                           <Frame
+                            paddingSize="Small"
                             type={tipo === 'Compra' ? 'primary' : 'secondary'}
                           >
                             <IconStyled

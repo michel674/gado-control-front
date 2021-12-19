@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import { Frame } from '../atomic/atm.frame/frame';
@@ -5,21 +7,26 @@ import { Separator } from '../atomic/atm.separator/separator.styled';
 
 import { H2, H3, H4, H5 } from '../components/typography';
 import { Hbox } from '../atomic/atm.box/hbox.styled';
-import { Button } from '../atomic/atm.button';
-import { Select } from '../atomic/atm.select';
+
 import { faIcon } from '../atomic/atm.font-awesome';
 import { IconStyled } from '../components/icon.styled';
 import { LinkStyled } from '../atomic/atm.link/link.styled';
+import { useRequest } from '../hooks/useRequest.hook';
 
 import { RoundButton } from '../atomic/atm.roundbutton';
+import { formatDayAndMonthToHuman } from '../utils/format-date';
 
 export const Transactions = () => {
-  const selectOptions = [
-    { title: 'Mais Recente', value: '1' },
-    { title: 'Mais Antigo', value: '2' },
-    { title: 'Maior Valor', value: '3' },
-    { title: 'Menor Valor', value: '4' },
-  ];
+  const { data, request: getTransactions } = useRequest({
+    route: '/transacao/list',
+  });
+
+  useEffect(() => {
+    getTransactions({ params: {}, withCredentials: true });
+  }, [getTransactions]);
+
+  const transactions = data?.transacoes;
+
   return (
     <>
       <Grid>
@@ -34,36 +41,36 @@ export const Transactions = () => {
           </Hbox.Item>
 
           <Hbox.Item hAlign="flex-end" vAlign="center">
-            <H5>39 Transações</H5>
+            <H5>
+              {transactions?.length}{' '}
+              {transactions?.length === 1 ? 'transação' : 'transações'}
+            </H5>
           </Hbox.Item>
         </Hbox>
-
-        <Row>
-          <Col xs={12}>
-            <Hbox>
-              <Hbox.Item noGrow>
-                <Select options={selectOptions} />
-              </Hbox.Item>
-
-              <Hbox.Item hAlign="flex-end">
-                <Button>Adicionar +</Button>
-              </Hbox.Item>
-            </Hbox>
-          </Col>
-        </Row>
 
         <Separator type="Medium" />
 
         <Row>
-          {[1, 2, 3, 4, 5, 6].map(item => {
+          {transactions?.map(item => {
             return (
               <Col xs={12} key={item}>
-                <LinkStyled to="/transactions/1">
+                <LinkStyled to={`/transactions/${item?.id}`}>
                   <Frame paddingSize="Small" toggle="true" clickable>
                     <Hbox>
                       <Hbox.Item noGrow>
-                        <Frame paddingSize="Small" type="primary">
-                          <IconStyled>{faIcon.shoppingCart}</IconStyled>
+                        <Frame
+                          paddingSize="Small"
+                          type={
+                            item?.tipo === 'Compra' ? 'primary' : 'secondary'
+                          }
+                        >
+                          <IconStyled
+                            type={
+                              item?.tipo === 'Compra' ? 'primary' : 'secondary'
+                            }
+                          >
+                            {faIcon.shoppingCart}
+                          </IconStyled>
                         </Frame>
                       </Hbox.Item>
 
@@ -71,13 +78,16 @@ export const Transactions = () => {
 
                       <Hbox.Item noGrow>
                         <Hbox>
-                          <H3>Compra de 9 Matrizes</H3>
+                          <H3>{item?.descricao}</H3>
                         </Hbox>
-                        <H5>01 de Janeiro de 2000</H5>
+                        <H5>{formatDayAndMonthToHuman(item?.data)}</H5>
                       </Hbox.Item>
                       <Hbox.Separator />
                       <Hbox.Item vAlign="center" hAlign="flex-end">
-                        <H4>-R$9.540</H4>
+                        <H4>
+                          {`${item.tipo === 'Compra' ? '-' : ''}R$ ` +
+                            item?.valor.toFixed(2)}
+                        </H4>
                       </Hbox.Item>
                     </Hbox>
                   </Frame>

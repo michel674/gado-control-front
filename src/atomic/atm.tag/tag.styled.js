@@ -16,6 +16,11 @@ const tagColor = {
 };
 
 export const TagStyled = styled.div`
+  display: flex;
+  justify-content: center;
+
+  width: ${props => (props.expand ? props.expand : 'default')};
+
   padding: ${Spacing.XNano} ${Spacing.Nano};
   background-color: ${props => tagColor[props.color] || tagColor.primary};
   border-radius: ${Radius.Medium};
@@ -33,4 +38,6 @@ export const TagStyled = styled.div`
     `
     background-color: ${props.cattleTag};
   `}
+
+  ${props => props.hex && `background-color: ${props.hex}`}
 `;

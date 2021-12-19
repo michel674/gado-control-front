@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import { Separator } from '../atomic/atm.separator/separator.styled';
-import { Body, H2, H5, H3, H4 } from '../components/typography';
+import { Body, H2, H3, H4 } from '../components/typography';
 import { Tag } from '../atomic/atm.tag';
 import { BoxStyled } from '../atomic/atm.box/box.styled';
 import { MoreButton } from '../atomic/atm.more-button';
@@ -29,20 +29,22 @@ export const Cattle = () => {
   });
 
   useEffect(() => {
-    getCattle({ params: {} });
+    getCattle({ params: {}, withCredentials: true });
   }, [getCattle]);
 
   const gestationTime = Math.floor(data?.tempo_crias / 30.4);
 
-  const WEIGHTSSTRING =
-    '10/08/2021,31;10/09/2021,53; 10/10/2021,70; 10/11/2021,120';
+  console.log('data', data);
 
-  const weights = WEIGHTSSTRING.split(';').map(weight => {
-    return {
-      weight: weight.split(',')[1],
-      date: weight.split(',')[0],
-    };
-  });
+  const weights = data?.pesos
+    ?.replaceAll(' ', '')
+    ?.split(';')
+    ?.map(weight => {
+      return {
+        weight: weight.split(',')[1],
+        date: weight.split(',')[0],
+      };
+    });
 
   const months = [
     { title: '0 meses', value: 0 },
@@ -59,8 +61,6 @@ export const Cattle = () => {
     { title: '11 meses', value: 11 },
     { title: '12 meses', value: 12 },
   ];
-
-  const [gmdProjection, setGmdProjection] = useState(0);
 
   const getMonthsProjection = (
     previousMonths,
@@ -82,11 +82,8 @@ export const Cattle = () => {
       return Number(lastWeight) + gmd * 30.4 * month;
     });
 
-    console.log('monthsToProject', monthsToProject);
-
     const newDates = monthsToProject.map(month => {
       const d = new Date(lastYear, lastMonth - 1, lastDay);
-      console.log('d', d);
 
       const newDate = new Date(d.setMonth(d.getMonth() + month));
       const isoDate = newDate.toISOString().split('T')[0];
@@ -108,14 +105,20 @@ export const Cattle = () => {
     return projection;
   };
 
-  let dates = weights.map(weight => weight.date);
-  const weightsArray = weights.map(weight => weight.weight);
+  let dates = weights?.map(weight => weight.date);
+  const weightsArray = weights?.map(weight => weight.weight);
 
   let chartKey = 1;
 
   const [chartLabels, setChartLabels] = useState(dates);
   const [chartWeightProjection, setChartWeightProjection] =
     useState(weightsArray);
+
+  useEffect(() => {
+    if (weightsArray?.length) {
+      setChartWeightProjection(weightsArray);
+    }
+  }, [data?.pesos]);
 
   const onClickApply = e => {
     e.preventDefault();
@@ -144,7 +147,7 @@ export const Cattle = () => {
   };
 
   const chartData = {
-    labels: chartLabels,
+    labels: chartLabels || weights?.map(weight => weight.date),
     datasets: [
       {
         label: 'Pesos (kg)',
