@@ -52,8 +52,6 @@ export const Cattles = () => {
 
   const cattles = data?.Cabecas;
 
-  useEffect(() => {});
-
   const onSubmit = e => {
     e?.preventDefault();
     const state = document?.querySelector('#state')?.value;

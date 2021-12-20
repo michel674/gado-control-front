@@ -12,7 +12,7 @@ export const useRequest = ({ method, baseURL, route }) => {
         setLoading(true);
         const response = await axios.request({
           method: method || 'get',
-          baseURL: baseURL || 'http://localhost:8000/',
+          baseURL: baseURL || 'https://gado-control.herokuapp.com/',
           url: route,
           params,
           data: bodyData,
