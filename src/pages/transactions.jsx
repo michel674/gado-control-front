@@ -15,9 +15,15 @@ import { useRequest } from '../hooks/useRequest.hook';
 
 import { RoundButton } from '../atomic/atm.roundbutton';
 import { formatDayAndMonthToHuman } from '../utils/format-date';
+import { LoadingState } from '../components/loading-state';
 
 export const Transactions = () => {
-  const { data, request: getTransactions } = useRequest({
+  const {
+    data,
+    loading,
+    request: getTransactions,
+    errorCode,
+  } = useRequest({
     route: '/transacao/list',
   });
 
@@ -27,80 +33,92 @@ export const Transactions = () => {
 
   const transactions = data?.transacoes;
 
+  console.log(errorCode);
+
   return (
-    <>
-      <Grid>
-        <Separator type="Small" />
+    <LoadingState
+      data={data}
+      errorCode={errorCode}
+      loading={loading}
+      shimmer={'carregando'}
+    >
+      {' '}
+      <>
+        <Grid>
+          <Separator type="Small" />
 
-        <Row>
-          <Col xs={12}></Col>
-        </Row>
-        <Hbox>
-          <Hbox.Item noGrow vAlign="center">
-            <H2>Transações</H2>
-          </Hbox.Item>
+          <Row>
+            <Col xs={12}></Col>
+          </Row>
+          <Hbox>
+            <Hbox.Item noGrow vAlign="center">
+              <H2>Transações</H2>
+            </Hbox.Item>
 
-          <Hbox.Item hAlign="flex-end" vAlign="center">
-            <H5>
-              {transactions?.length}{' '}
-              {transactions?.length === 1 ? 'transação' : 'transações'}
-            </H5>
-          </Hbox.Item>
-        </Hbox>
+            <Hbox.Item hAlign="flex-end" vAlign="center">
+              <H5>
+                {transactions?.length}{' '}
+                {transactions?.length === 1 ? 'transação' : 'transações'}
+              </H5>
+            </Hbox.Item>
+          </Hbox>
 
-        <Separator type="Medium" />
+          <Separator type="Medium" />
 
-        <Row>
-          {transactions?.map(item => {
-            return (
-              <Col xs={12} key={item}>
-                <LinkStyled to={`/transactions/${item?.id}`}>
-                  <Frame paddingSize="Small" toggle="true" clickable>
-                    <Hbox>
-                      <Hbox.Item noGrow>
-                        <Frame
-                          paddingSize="Small"
-                          type={
-                            item?.tipo === 'Compra' ? 'primary' : 'secondary'
-                          }
-                        >
-                          <IconStyled
+          <Row>
+            {transactions?.map(item => {
+              return (
+                <Col xs={12} key={item}>
+                  <LinkStyled to={`/transactions/${item?.id}`}>
+                    <Frame paddingSize="Small" toggle="true" clickable>
+                      <Hbox>
+                        <Hbox.Item noGrow>
+                          <Frame
+                            paddingSize="Small"
                             type={
                               item?.tipo === 'Compra' ? 'primary' : 'secondary'
                             }
                           >
-                            {faIcon.shoppingCart}
-                          </IconStyled>
-                        </Frame>
-                      </Hbox.Item>
+                            <IconStyled
+                              type={
+                                item?.tipo === 'Compra'
+                                  ? 'primary'
+                                  : 'secondary'
+                              }
+                            >
+                              {faIcon.shoppingCart}
+                            </IconStyled>
+                          </Frame>
+                        </Hbox.Item>
 
-                      <Hbox.Separator />
+                        <Hbox.Separator />
 
-                      <Hbox.Item noGrow>
-                        <Hbox>
-                          <H3>{item?.descricao}</H3>
-                        </Hbox>
-                        <H5>{formatDayAndMonthToHuman(item?.data)}</H5>
-                      </Hbox.Item>
-                      <Hbox.Separator />
-                      <Hbox.Item vAlign="center" hAlign="flex-end">
-                        <H4>
-                          {`${item.tipo === 'Compra' ? '-' : ''}R$ ` +
-                            item?.valor.toFixed(2)}
-                        </H4>
-                      </Hbox.Item>
-                    </Hbox>
-                  </Frame>
-                </LinkStyled>
-                <Separator type="XNano" />
-              </Col>
-            );
-          })}
-        </Row>
-      </Grid>
-      <LinkStyled to="/add-transaction">
-        <RoundButton>+</RoundButton>
-      </LinkStyled>
-    </>
+                        <Hbox.Item noGrow>
+                          <Hbox>
+                            <H3>{item?.descricao}</H3>
+                          </Hbox>
+                          <H5>{formatDayAndMonthToHuman(item?.data)}</H5>
+                        </Hbox.Item>
+                        <Hbox.Separator />
+                        <Hbox.Item vAlign="center" hAlign="flex-end">
+                          <H4>
+                            {`${item.tipo === 'Compra' ? '-' : ''}R$ ` +
+                              item?.valor.toFixed(2)}
+                          </H4>
+                        </Hbox.Item>
+                      </Hbox>
+                    </Frame>
+                  </LinkStyled>
+                  <Separator type="XNano" />
+                </Col>
+              );
+            })}
+          </Row>
+        </Grid>
+        <LinkStyled to="/add-transaction">
+          <RoundButton>+</RoundButton>
+        </LinkStyled>
+      </>
+    </LoadingState>
   );
 };

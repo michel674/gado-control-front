@@ -1,5 +1,5 @@
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hbox } from '../atm.box/hbox.styled';
 import { Separator } from '../atm.separator/separator.styled';
 import { H3, H5 } from '../../components/typography';
@@ -11,9 +11,19 @@ import {
   PopupBackground,
 } from './avatar.styled';
 import { LinkStyled } from '../atm.link/link.styled';
+import { useRequest } from '../../hooks/useRequest.hook';
+import { getInitials } from '../../utils/get-initials';
 
 export const Avatar = () => {
   const [open, setOpen] = useState(false);
+
+  const { data, request } = useRequest({ route: '/usuario/get' });
+
+  useEffect(() => {
+    request({ withCredentials: true, params: null });
+  }, [request]);
+
+  console.log(data);
   return (
     <>
       {open && (
@@ -22,7 +32,10 @@ export const Avatar = () => {
         </>
       )}
       <AvatarWrapperStyled>
-        <UserAvatarStyled onClick={() => setOpen(!open)}>TB</UserAvatarStyled>
+        <UserAvatarStyled onClick={() => setOpen(!open)}>
+          {' '}
+          {getInitials(data?.username)}
+        </UserAvatarStyled>
         {open && (
           <>
             <AvatarPopUpStyled>
@@ -31,12 +44,14 @@ export const Avatar = () => {
                   <Col>
                     <Hbox>
                       <Hbox.Item noGrow>
-                        <UserAvatarStyled displayOnly>TB</UserAvatarStyled>
+                        <UserAvatarStyled displayOnly>
+                          {getInitials(data?.username)}
+                        </UserAvatarStyled>
                       </Hbox.Item>
                       <Hbox.Separator />
                       <Hbox.Item vAlign="center">
-                        <H3>Thiago Lam Brawerman</H3>
-                        <H5>Admin</H5>
+                        <H3>{data?.username}</H3>
+                        <H5>{data?.cargo}</H5>
                       </Hbox.Item>
                     </Hbox>
                   </Col>

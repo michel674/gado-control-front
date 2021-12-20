@@ -10,13 +10,23 @@ import { H2, Body } from '../../components/typography';
 import { Hbox } from '../atm.box/hbox.styled';
 import { Separator } from '../atm.separator/separator.styled';
 import { Tag } from '../atm.tag';
-import { LinkStyled } from '../atm.link/link.styled';
 
-export const ConfirmButton = ({ children, tag, description, title }) => {
+export const ConfirmButton = ({
+  children,
+  tag,
+  description,
+  title,
+  confirm,
+}) => {
   const [open, setOpen] = useState(false);
+
+  const onClickConfirm = e => {
+    e?.preventDefault();
+    confirm();
+  };
   return (
     <>
-      <ConfirmButtonStyled onClick={() => setOpen(!open)}>
+      <ConfirmButtonStyled onClick={() => setOpen(!open)} type="button">
         {children}
       </ConfirmButtonStyled>
 
@@ -58,9 +68,9 @@ export const ConfirmButton = ({ children, tag, description, title }) => {
                     <Col xs={12} md={5}>
                       <Hbox>
                         <Hbox.Item hAlign="center">
-                          <LinkStyled to="./..">
-                            <PopupButtonStyled>Confirmar</PopupButtonStyled>
-                          </LinkStyled>
+                          <PopupButtonStyled type="submit">
+                            Confirmar
+                          </PopupButtonStyled>
                         </Hbox.Item>
                       </Hbox>
                     </Col>

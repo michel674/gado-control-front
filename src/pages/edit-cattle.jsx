@@ -33,7 +33,6 @@ export const EditCattlePage = () => {
     getCattleData({ params: null });
   }, [getCattleData]);
 
-
   const { data: tagColors, request: getTagColors } = useRequest({
     route: '/brincos/get',
   });
@@ -54,7 +53,6 @@ export const EditCattlePage = () => {
     setCattleSelect(cattleData?.cabeca?.tipo);
   }),
     [cattleData];
-
 
   useEffect(() => {
     getTagColors({ params: null });
@@ -123,6 +121,8 @@ export const EditCattlePage = () => {
       withCredentials: true,
     });
   };
+
+  console.log(cattleData);
 
   return (
     <div>
@@ -299,7 +299,7 @@ export const EditCattlePage = () => {
               <TextArea
                 id="weights"
                 name="weights"
-                defaultValue={cattleData?.cabeca?.weights}
+                defaultValue={cattleData?.ficha_medica?.pesos_timeseries}
               />
             </Col>
           </Row>

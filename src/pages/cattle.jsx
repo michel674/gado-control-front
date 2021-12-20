@@ -34,7 +34,6 @@ export const Cattle = () => {
 
   const gestationTime = Math.floor(data?.tempo_crias / 30.4);
 
-  console.log('data', data);
 
   const weights = data?.pesos
     ?.replaceAll(' ', '')

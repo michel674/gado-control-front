@@ -8,6 +8,7 @@ import { Button } from '../atomic/atm.button';
 import { TextArea } from '../atomic/atm.textarea';
 import ReactSelect from 'react-select';
 import { useRequest } from '../hooks/useRequest.hook';
+
 export const AddTransactionPage = () => {
   const selectOptions = [
     { title: '-------', value: '1' },
@@ -29,7 +30,6 @@ export const AddTransactionPage = () => {
   useEffect(() => {
     getCabecas({ params: null, withCredentials: true });
   }, [getCabecas]);
-
 
   const cattleOption = cattleData?.cabecas?.map(cattle => {
     return { label: `${cattle?.tipo} - ${cattle?.tag}`, value: cattle?.id };

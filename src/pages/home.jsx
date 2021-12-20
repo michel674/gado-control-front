@@ -52,7 +52,7 @@ export const Home = () => {
   const { data, request } = useRequest({ route: '/home' });
 
   useEffect(() => {
-    request({ params: {} });
+    request({ params: {}, withCredentials: true });
   }, [request]);
 
   const cows = data?.n_matrizes;
@@ -100,7 +100,7 @@ export const Home = () => {
                   <Hbox.Item hAlign="center">
                     <H4>Vacas</H4>
                     <Separator type="Small" />
-                    {cows ? <H1>{cows}</H1> : 'carregando...'}
+                    <H1>{cows}</H1>
                   </Hbox.Item>
                 </Hbox>
               </Frame>

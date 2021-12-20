@@ -22,8 +22,6 @@ export const Login = () => {
     e.preventDefault();
     const username = document.querySelector('#username').value;
     const password = document.querySelector('#password').value;
-    console.log(username);
-    console.log(password);
 
     axios
       .post(

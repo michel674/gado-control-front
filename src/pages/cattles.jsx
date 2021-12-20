@@ -15,6 +15,7 @@ import { LinkStyled } from '../atomic/atm.link/link.styled';
 import { useRequest } from '../hooks/useRequest.hook';
 import { faIcon } from '../atomic/atm.font-awesome';
 import { IconStyled } from '../components/icon.styled';
+import { BoxStyled } from '../atomic/atm.box/box.styled';
 
 export const Cattles = () => {
   const selectEstado = [
@@ -45,6 +46,7 @@ export const Cattles = () => {
         categoria: 'ativos',
         order_by: 'maisnovo',
       },
+      withCredentials: true,
     });
   }, [request]);
 
@@ -77,7 +79,7 @@ export const Cattles = () => {
   };
 
   useEffect(() => {
-    getTagColors({ params: null });
+    getTagColors({ params: null, withCredentials: true });
   }, [getTagColors]);
 
   const selectColors = tagColors?.map(item => {
@@ -172,10 +174,14 @@ export const Cattles = () => {
 
                       <Hbox.Separator />
 
-                      <Hbox.Item noGrow>
+                      <Hbox.Item noGrow vAlign="center">
                         <Hbox>
-                          <H3>{item?.n_etiqueta}</H3> <Separator type="Nano" />{' '}
-                          <H5>{item?.tipo}</H5>
+                          <BoxStyled vAlign="center">
+                            <H3>
+                              #{item?.n_etiqueta}/{item?.cor_brinco}
+                            </H3>{' '}
+                            <Separator type="Nano" /> <H5>{item?.tipo}</H5>
+                          </BoxStyled>
                         </Hbox>
                         <H5> 430 kg &bull; {item?.idade}</H5>
                       </Hbox.Item>
